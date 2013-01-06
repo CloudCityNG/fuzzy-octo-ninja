@@ -33,3 +33,22 @@ function r_md5($string){
 function r_sha($string){
 	return sha1(r_string($string));
 }
+
+function load_static($where,$what){
+$folder=dir($where);
+while($folderEntry=$folder->read()){
+	if ($what=='css') {
+		$e = "<link type='text/css' href='".base_url().$where;
+		$close = "' rel='stylesheet' media='all' /> ";
+	} else if ($what=='js') {
+		$e = "<script type='text/javascript' src='".base_url().$where;
+		$close = "'></script>";
+	} else {
+		echo "error";
+	}
+echo is_dir($folderEntry) ? null : $e.$folderEntry.$close."\n";
+
+
+}
+$folder->close();
+}
