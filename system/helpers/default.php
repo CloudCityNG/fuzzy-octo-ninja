@@ -52,3 +52,21 @@ echo is_dir($folderEntry) ? null : $e.$folderEntry.$close."\n";
 }
 $folder->close();
 }
+
+function load_sfiles($where,$what,$var = array()){
+	foreach ($var as $value) {
+		# code...
+
+		if ($what=='.css') {
+			$e = "<link type='text/css' href='".base_url().$where.$value.$what;
+			$close = "' rel='stylesheet' media='all' /> ";
+		} else if ($what=='.js') {
+			$e = "<script type='text/javascript' src='".base_url().$where.$value.$what;
+			$close = "'></script>";
+		} else {
+			echo "error";
+		}
+
+		echo $e.$close."\n";
+	}
+}

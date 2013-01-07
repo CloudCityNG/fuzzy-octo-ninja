@@ -6,8 +6,8 @@
 			</div>
 
 				<div class="signin-box">
-					<form action="<?=base_url()."main/forgot";?>" method="POST" id="login_frm" class="left">
-						<h1 class="title" style="color:gray">Forgot password</h1>
+					<form action="<?=base_url()."main/forgot";?>" method="POST">
+						<h3 class="title" style="color:gray">Forgot password</h3>
 						<?=(isset($error))? "<p class='error'>".$error."</p>": null;?>
 						<p>Enter your Cellphone Number<br /><input type="text" name="cpn" class="inp" id="cpn" autofocus="autofocus"/></p>
 						<p><input type="submit" class="g-button green" value="Forgot password" name="userforgot" /></p>
