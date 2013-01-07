@@ -17,7 +17,7 @@ class admin extends MVC_controller{
 		$data['leavecnt'] = ($a['count']==0) ? null : $a['count'];
 		
 		$this->load->render('common/header__',$data);
-		//$this->load->render('admin/admin_',$data);
+		$this->load->render('admin/admin_',$data);
 		$this->load->render('common/footer_',$data);
 	}
 	

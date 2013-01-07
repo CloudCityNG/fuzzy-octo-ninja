@@ -8,4 +8,6 @@ body{background: url('../img/Home_8_2.jpg')no-repeat center top}
         width: 250px!important;
 		box-shadow: 0 0 5px gray;
 }
+h1.title{font:bold 48px 'Arial';}
+h1.title span{font:36px 'Arial';}
 

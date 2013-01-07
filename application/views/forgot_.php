@@ -2,7 +2,7 @@
 	<div class="wrapper minh" id="login">
 			
 			<div id="emp_pics">
-					<h1 class="title" style="color:rgb(2,77,145);">Welcome! to Universal Commercial Corporation</h1>
+					<h1 class="title" style="color:rgb(2,77,145);"><span>Welcome!</span><br />Universal Commercial Corporation</h1>
 			</div>
 
 				<div class="signin-box">

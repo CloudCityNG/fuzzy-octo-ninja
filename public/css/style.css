@@ -1,0 +1,6 @@
+.left{float:left}
+.right{float:right}
+.clear{float:right}
+#small-left{width: 400px}
+#small-left a{font-weight: bold;color: gray}
+.min-height{height: 400px} 

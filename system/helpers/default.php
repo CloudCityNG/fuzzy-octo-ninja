@@ -70,3 +70,7 @@ function load_sfiles($where,$what,$var = array()){
 		echo $e.$close."\n";
 	}
 }
+
+function loadImage($dir,$class,$id,$style){
+	return "<img src='".base_url().$dir."' class='".$class."' id='".$id."' style='".$style."' />";
+}

@@ -2,7 +2,7 @@
 <html lang="eng">
 <head>
 <?php
-load_static('public/css/','css');?>
+load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','google-bootstrap','prettify','custom'));?>
 <style type="text/css">
 <!--
 /*Your style here*/
