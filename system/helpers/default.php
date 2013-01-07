@@ -23,7 +23,7 @@ function curl(){
 }
 
 function r_string($string){
-	return mysql_real_escape_string(strip_tags($string));
+	return strip_tags($string);
 }
 
 function r_md5($string){

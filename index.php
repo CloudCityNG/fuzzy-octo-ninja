@@ -8,9 +8,10 @@
  *@copyright	Copyright 2012(c) Mangtomas Ungasis
  */
 /*
-*Error reporting  | E_WARNING | E_PARSE
+*Error reporting 
+E_ERROR | E_WARNING | E_PARSE)
 */
-error_reporting(E_ERROR);
+error_reporting(0);
 
 
 

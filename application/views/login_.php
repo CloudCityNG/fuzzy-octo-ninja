@@ -2,7 +2,7 @@
 	<div class="wrapper minh" id="login">
 			
 			<div id="emp_pics">
-					<h1 class="title">Welcome! to Universal Commercial Corporation</h1>
+					<h1 class="title" style="color:rgb(2,77,145);">Welcome! to Universal Commercial Corporation</h1>
 			</div>
 
 				<div class="signin-box">
@@ -10,8 +10,8 @@
 						 <fieldset>
 						<h1 class="title" style="color:gray">Login</h1>
 						<?=(isset($error))? "<p class='label label-important'>".$error."</p>": null;?>
-						<p><input type="text" placeholder="Username" name="username" class="inp" id="uname" autofocus="autofocus"/></p>
-						<p><input type="password" placeholder="Password" name="password" class="inp" /></p>
+						<p><input type="text" placeholder="Username" name="userLogin" autofocus="autofocus"/></p>
+						<p><input type="password" placeholder="Password" name="userPass" /></p>
 						<p>
 						<input type="submit" class="btn btn-success" name="userlogin" value="Login" /></p>
 

@@ -21,24 +21,34 @@ class main extends MVC_controller{
 	
 	public function login(){
 		if($_POST['userlogin']){
-				$uname = r_string($_POST['username']);
-				$pass = r_sha(r_string($_POST['password']));
-				$result = $this->validate->user($uname,$pass);	
-				$uid = $result['uid'];
-				$username = $result['username'];
-				$usertype = $result['usertype'];
-		
-				if($result == TRUE){
-						$this->session->_set(array('uid'=>$uid,'username'=>$username,'usertype'=>$usertype,'islogin'=>true));
-						if($usertype==0){
-							redirect('admin');
-						}else{
-							redirect('users');
-						}
+				$uname = r_string($_POST['userLogin']);
+				$pass = r_sha(r_string($_POST['userPass']));
+				
+				if(empty($uname) || empty($pass)){
+					$data['error'] = 'Invalid Username or Password';
 				}else{
-				$data['error'] = 'Invalid Username or Password';
+					$result = $this->validate->user($uname,$pass);	
+						$uid = $result['uid'];
+						$username = $result['username'];
+						$usertype = $result['usertype'];
+				
+						if($result == TRUE){
+								$this->session->_set(array('uid'=>$uid,'username'=>$username,'usertype'=>$usertype,'islogin'=>true));
+								if($usertype==0){
+									redirect('admin');
+								}else{
+									redirect('users');
+								}
+						}else{
+						$data['error'] = 'Invalid Username or Password';
+						}
+				
 				}
 				
+				
+				
+		}else{
+			redirect('main');
 		}
 		$this->load->render('common/header_');
 		$this->load->render('login_',$data);
