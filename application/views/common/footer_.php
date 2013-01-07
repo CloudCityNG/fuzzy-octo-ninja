@@ -6,11 +6,10 @@
 </div>
 
 
-
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <?php
 load_static('public/js/','js');
 ?>
-
 </body>
 </html>

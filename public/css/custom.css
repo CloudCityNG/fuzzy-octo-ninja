@@ -1,0 +1,10 @@
+body{background: url('../img/Home_8_2.jpg')no-repeat center top}
+.container{margin:0 auto 0 auto;width:970px!important}
+
+.signin-box {
+        padding: 20px 25px 15px;
+        background: #f1f1f1;
+        border: 1px solid #e5e5e5;
+        width: 250px!important
+}
+

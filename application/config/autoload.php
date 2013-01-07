@@ -10,11 +10,11 @@
 *	-db
 *	-session
 */
-$config['models'] = array('session','db','crud');
+$config['models'] = array('session','db','validate','user','crud','compute','reportsmodel');
 
 //Helpers
 //e.g. array('default','helper1');
-$config['helpers'] = array('default');
+$config['helpers'] = array('default','islogin','isequal');
 
 //Libararies
 $config['libraries'] = array();
