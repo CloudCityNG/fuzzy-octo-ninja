@@ -20,7 +20,7 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 <small>Admin panel</small></a>
     <ul class="nav" style="margin:0">
     <li class="active" ><a href="#" >Home</a></li>
-        <?php
+       <!-- <?php
         $Branches = array('Commonwealth','Fairview','España','Shaw');
         ?>
                       <li id="fat-menu" class="dropdown">
@@ -34,19 +34,19 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
                           ?>
                           
                         </ul>
-                      </li>
+                      </li>-->
         
 
     </ul>
          <ul class="nav pull-right">
                     <li id="fat-menu" class="dropdown">
-                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <b class="caret"></b></a>
+                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?=$info['lastname'].", ".$info['firstname'];?><b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu" >
-                        <li><a tabindex="-1" href="#">Action</a></li>
-                        <li><a tabindex="-1" href="#">Another action</a></li>
-                        <li><a tabindex="-1" href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a tabindex="-1" href="#">Separated link</a></li>
+                        <li><a href="<?=base_url()."account/settings";?>" ><i class="icon-info-sign "></i> Account Settings</a></li>
+                        <li><a href="<?=base_url()."account/benefits";?>" ><i class="icon-star "></i> Benefits Accounts</a></li>
+                         <li class="divider"></li>
+                        <li><a href="<?=base_url()."main/logout";?>" ><i class="icon-arrow-right"></i> Logout</a></li>
+
                       </ul>
                     </li>
                   </ul>

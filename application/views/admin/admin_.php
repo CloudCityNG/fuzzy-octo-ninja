@@ -10,7 +10,38 @@
 					
 					<h1 class='left'>Welcome <?=$info['lastname'].", ".$info['firstname'];?> <span>What would you like to do today?</span></h1>
 		
-			
+			<ul class="nav nav-pills">
+				<li class="dropdown">
+                	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Employees <b class="caret"></b></a>
+                	<ul class="dropdown-menu">
+                		<li><a href="#"><i class="icon-list-alt"></i>View Employees</a></li>
+                		<li><a href="#"><i class="icon-plus-sign"></i>Add Employees</a></li>
+                		<li><a href="#"><i class="icon-search"></i>Search Employees</a></li>
+                	</ul>
+             	 </li>
+
+             	 <li class="dropdown">
+                	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments and Positions <b class="caret"></b></a>
+                	<ul class="dropdown-menu">
+                		<li><a href="#"><i class="icon-list-alt"></i>View Department</a></li>
+                		<li><a href="#"><i class="icon-plus-sign"></i>Add Departments</a></li>
+                		<li class="divider"></li>
+                		<li><a href="#"><i class="icon-list-alt"></i>View Positions</a></li>
+                		<li><a href="#"><i class="icon-plus-sign"></i>Add Positions</a></li>
+
+                	</ul>
+             	 </li>
+
+             	 <li class="dropdown">
+                	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<b class="caret"></b></a>
+                	<ul class="dropdown-menu">
+                		<li><a href="#"><i class="icon-list-alt"></i>Payslip</a></li>
+          
+                	</ul>
+             	 </li>
+              
+              
+            </ul>
 		
 	
 </div>
