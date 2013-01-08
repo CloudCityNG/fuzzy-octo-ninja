@@ -177,4 +177,10 @@ class employees extends MVC_controller{
 		$this->load->render('admin/employees_',$data);
 		$this->load->render('common/footer_',$data);
 	}
+
+	public function save(){
+		$action = isset($_POST) && $_POST['action'] ? $_POST['action'] : 'get';
+			$value  = isset($_POST) && $_POST['value'] ? $_POST['value'] : '';
+	echo "sakin to";
+	}
 }

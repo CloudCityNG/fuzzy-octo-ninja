@@ -6,10 +6,16 @@
 </div>
 
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <?php
 load_static('public/js/','js');
 ?>
+
+<table>
+                <tr><td><span id="editable_01" class="editable">Joe Blogg</span></td></tr>
+                <tr><td><span class="editable">John Doe</span></td></tr>
+                <tr><td><span class="editable">Paul White</span></td></tr>
+                <tr><td><span class="editable"></span></td></tr>
+            </table>
 </body>
 </html>

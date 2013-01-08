@@ -7,17 +7,43 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 <style type="text/css">
 <!--
 /*Your style here*/
+
 -->
 </style>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 <script type="text/javascript">
 /*Your script here*/
 $(document).ready(function(){
   $('#myTab a:last').tab('show');
-  $('#adtr').tooltip(options)
+   $.ajaxSetup({
+          url: '<?=base_url()."employees/save/"?>',
+          type: 'POST',
+          async: false,
+          timeout: 500
+    });
+
+  $('.editable').inlineEdit({
+        value: $.ajax({ data: { 'action': 'POST' } }).responseText,
+        save: function(event, data) {
+            var html = $.ajax({
+                data: { 'action': 'save', 'value': data.value }
+            }).responseText;
+            alert(html);
+           // alert("id: " + this.id );
+            
+            return html === 'OK' ? true : false;
+        }
+    });
 });
+
+
 </script>
 </head>
 <body>
+
+
+
 <div class="navbar navbar-inverse">
     <div class="navbar-inner">
     <div class="container">

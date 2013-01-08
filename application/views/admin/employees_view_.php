@@ -21,10 +21,10 @@
 				    	If you want to change the information just click edit.
 				    </div>
 			<h3 class="title">Basic Information</h3>
-
+<span class="editable">Joe Blogg</span>
     <h4 class="title"><?=$e_info['firstname']." ".$e_info['mid_name']." ".$e_info['lastname'];?></h4>
-			<table>
-				<tr><td class="frst">First Name </td><td>: <strong><?=$e_info['firstname'];?></strong></td>
+			<table class="table table-condensed">
+				<tr><td class="frst">First Name </td><td>: <strong class="editable"><?=$e_info['firstname'];?></strong></td>
 				<tr><td class="frst">Last Name </td><td>: <strong><?=$e_info['lastname'];?></strong></td>
 				<tr><td class="frst">Middle Name </td><td>: <strong><?=$e_info['mid_name'];?></strong></td>
 				<tr><td class="frst">Status </td><td>: <strong><?=$e_info['civil_status'];?></strong></td>
@@ -46,7 +46,7 @@
 				<tr><td class="frst">Address </td><td>: <strong><?=$e_info['address'];?></strong></td></tr>
 				<tr><td class="frst">Religion </td><td>: <strong><?=$e_info['religion'];?></strong></td></tr>
 			</table>
-
+			<a href="#" class="btn btn-success">Edit</a>
 	</div>
 				
 				
