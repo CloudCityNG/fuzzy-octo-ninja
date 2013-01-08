@@ -6,9 +6,60 @@
 					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
 					    </form>
 					    <br  class="clear" />
-				<div class="well">
+	<div class="pull-left" style="width:200px;">
+		    <ul class="nav nav-list">
+		    <li class="nav-header">Navigation</li>
+		    <li class="active"><a href="#">Basic Information</a></li>
+		    <li><a href="#">Accounts</a></li>
+
+		    </ul>
+	</div>
+
+	<div class="pull-right well well-small" style="width:710px">
+			    <div class="alert alert-info">
+				    <h5 style="margin:0">Note!</h5>
+				    	If you want to change the information just click edit.
+				    </div>
+			<h3 class="title">Basic Information</h3>
+
+    <h4 class="title"><?=$e_info['firstname']." ".$e_info['mid_name']." ".$e_info['lastname'];?></h4>
+			<table>
+				<tr><td class="frst">First Name </td><td>: <strong><?=$e_info['firstname'];?></strong></td>
+				<tr><td class="frst">Last Name </td><td>: <strong><?=$e_info['lastname'];?></strong></td>
+				<tr><td class="frst">Middle Name </td><td>: <strong><?=$e_info['mid_name'];?></strong></td>
+				<tr><td class="frst">Status </td><td>: <strong><?=$e_info['civil_status'];?></strong></td>
+				<tr><td class="frst">Department </td><td>: <strong><?=$e_info['dep_name'];?></strong></td>
+				<tr><td class="frst">Position </td><td>: <strong><?=$e_info['job_name'];?></strong></td></tr>
+				<tr><td class="frst">Salary </td><td>: <strong><?=$e_info['b_salary']." PHP";?></strong></td></tr>
+				<tr><td class="frst">Birthdate </td><td>: <strong><?=$e_info['bday'];?></strong></td></tr>
+				<tr><td class="frst">Age </td><td>: <strong><?=$e_info['age'];?></strong></td></tr>
+				<tr><td class="frst">Gender </td><td>: <strong>
+					<?php
+						$gen = array('M'=>'Male','F'=>'Female');
+						foreach ($gen as $key => $value) {
+							# code...
+							echo ($e_info['sex']=="$key") ? $value : null;
+						}
+
+					?>
+				</strong></td></tr>
+				<tr><td class="frst">Address </td><td>: <strong><?=$e_info['address'];?></strong></td></tr>
+				<tr><td class="frst">Religion </td><td>: <strong><?=$e_info['religion'];?></strong></td></tr>
+			</table>
+
+	</div>
+				
+				
+							
+
+</div>
+
+
+<!--
+
+<div class="well">
 					<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
-						<h2>Information</h2>
+						<h3>Basic Information</h3>
 						<table style="margin:0" id="tbl-emp">
 							<tr><td><p>Department<br />
 									<div class="g-button-group tdepcon" id="dep-c" >
@@ -97,7 +148,4 @@
 										<br class="clear" />
 									
 					</div>
-				
-							
-
-</div>
+-->

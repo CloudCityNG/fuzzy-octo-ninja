@@ -7,9 +7,11 @@ class employees extends MVC_controller{
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
 		$this->cnt = $this->checkLeave->countLeave();
 		$this->whoAreThem = $this->checkLeave->whoAreThem();
+
 	}
 	
 	public function index(){
+
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['emp'] = $s = $this->crud->read('SELECT e.id,e.firstname,e.contact,e.lastname,e.mid_name,d.dep_name,j.job_name,e.hiredate FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id ORDER BY e.id DESC',array('id'=>$this->session->_get('uid')));
 		$data['leavecnt'] = $this->cnt;

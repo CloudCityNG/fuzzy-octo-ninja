@@ -5,5 +5,7 @@
 #small-left a{font-weight: bold;color: gray}
 .min-height{height: 400px} 
 #sttngs{border:1px solid red;width: 750px;padding: 9px}
-h1.title{margin-top: 0;padding-top: 0}
+h1.title,h4.title{margin-top: 0;padding-top: 0;color:rgb(239,133,6);}
+h5.title{margin-top:0;}
 .table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 13px; font-weight: bold; border-left: 1px solid #0070A8; }
+table tr td.frst{width: 150px}
