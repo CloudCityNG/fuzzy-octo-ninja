@@ -1,15 +1,10 @@
-<div class="container" id="menu-con">
-	<div class="wrapper">
-			<ul id="dash-b">
-					<li><a href="<?=base_url()."employees/add/";?>" class="g-button green"><i class="icon-white icon-plus-sign"></i> Add Employee</a></li>
-					<li class="sli"> <form action="<?=base_url()."employees";?>"  method="POST">Search <input type="text" class="l-input" name="search-box" id="search_box" style="margin-right:9px" /> <button name="s-btn" class="g-button blue right"><i class="icon-search icon-white"></i> Search</button></form></li>
-						
-				</ul>
-	</div>
-</div>
-<div class="container" id="admin">
-	<div class="wrapper minh">
-					<h1 class="title2"><span>Employees</span></h1>
+<div class="container">
+<h1 class="title pull-left"><span>Employees</span></h1>
+						<form method="POST" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
+					    <input type="text" placeholder="Search Employees Name"  class="input-large search-query" name="query">
+					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
+					    </form>
+					    <br class="clear"  />
 							<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
 							<div class="datagrid"><table>
 								<thead><tr><th>Emp ID</th><th>Employee Name</th><th>Department</th><th>Position</th><th>Action</th></tr></thead>
@@ -39,5 +34,5 @@
 								--></div>
 							
 						
-	</div>
+
 </div>

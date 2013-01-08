@@ -10,11 +10,11 @@
 					<h1 class="title">Account Settings</h1>
 							
 					<div class="thebox">
-					<div class="left">
-					<img src="<?=base_url()."public/img/avatar.png";?>" />
-					<h1 style="line-height:20px"><small>Name :  <?=$a_info['firstname']." ".$a_info['mid_name']." ".$a_info['lastname'];?></small></h1>
+					<div class="pull-left" style="width:200px">
+					<img src="<?=base_url()."public/img/avatar.png";?>" class="img-polaroid" />
+					<h4 style="line-height:20px"><?=$a_info['firstname']." ".$a_info['mid_name']." ".$a_info['lastname'];?></h4>
 					</div>
-					<div class="right well">
+					<div class="pull-right well">
 					<?=isset($success) ? "<div class='alert alert-success'>".$success."</div>" : null;?>
 					<?=isset($error) ? "<div class='alert alert-error'>".$error."</div>" : null;?>
 					

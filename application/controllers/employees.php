@@ -6,7 +6,7 @@ class employees extends MVC_controller{
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
 		$this->cnt = $this->checkLeave->countLeave();
-			$this->whoAreThem = $this->checkLeave->whoAreThem();
+		$this->whoAreThem = $this->checkLeave->whoAreThem();
 	}
 	
 	public function index(){
@@ -22,13 +22,13 @@ class employees extends MVC_controller{
 		}
 		
 		//search
-		if(isset($_POST['s-btn'])){
-			$search = r_string($_POST['search-box']);
-			$data['search']=$s = $this->crud->read('SELECT e.id,e.firstname,e.lastname,e.mid_name,d.dep_name,j.job_name FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id AND e.id != :id AND firstname LIKE :search',array('id'=>$this->session->_get('uid'),'search'=>"$search%"));
+		if(isset($_POST['searchEmp'])){
+			$search = r_string($_POST['query']);
+			$data['search']=$s = $this->crud->read('SELECT e.id,e.firstname,e.lastname,e.mid_name,d.dep_name,j.job_name FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id AND e.id != :id AND (firstname LIKE :search)',array('id'=>$this->session->_get('uid'),'search'=>"$search%"));
 			$this->s = true;
 		}
 		
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		if($this->s == true){
 		$this->load->render('admin/employees_search_',$data);
 		}else{
@@ -90,7 +90,7 @@ class employees extends MVC_controller{
 			return false;
 		}
 
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_add_',$data);
 		$this->load->render('common/footer_',$data);
 	}
@@ -148,7 +148,7 @@ class employees extends MVC_controller{
 			 
 			 $data['success'] = "Employee was successfully modify.";
 		}
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		if($action=='view'){
 		$this->load->render('admin/employees_view_',$data);
 		}else{

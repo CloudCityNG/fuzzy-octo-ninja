@@ -51,14 +51,22 @@ class leave extends MVC_controller{
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['leavecnt'] = $this->cnt;
 		$data['whoAreThem'] = $this->whoAreThem;
-			$a = $this->crud->read('SELECT em.lastname,em.firstname,em.mid_name,lr.leave_apply,lr.fr,lr.tod,lr.reason,lr.id,lr.status FROM leave_request as lr,employees as em WHERE em.id=:id AND lr.id=:mid',array('id'=>$id[0],'mid'=>$id[1]));
+		$a = $this->crud->read('SELECT em.lastname,em.firstname,em.mid_name,lr.leave_apply,lr.fr,lr.tod,lr.reason,lr.id,lr.status FROM leave_request as lr,employees as em WHERE em.id=:id AND lr.id=:mid',array('id'=>$id[0],'mid'=>$id[1]));
 			$data['nme'] = $a[0]['lastname'].", ".$a[0]['firstname']." ".$a[0]['mid_name'];
 			$data['leave'] = $a[0]['leave_apply'];
 			$data['from'] = $a[0]['fr'];
 			$data['to'] = $a[0]['tod'];
 			$data['reason'] = $a[0]['reason'];
 			$data['lrid'] = $a[0]['id'];
-			$data['st'] = $a[0]['status'];
+			$data['emp_id'] = $id[0];
+			$data['lrstatus'] = $a[0]['status'];
+
+		if($_POST['accpt']){
+				$id = explode('/', $_POST['id']);
+			$a = $this->crud->update('leave_request',array('status'=>1),array('id'=>$id[1]));
+			$data['success'] = "Leave request was successfully accepted.";
+		}
+
 
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/leave_view_spec',$data);

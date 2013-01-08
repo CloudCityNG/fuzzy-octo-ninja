@@ -1,27 +1,21 @@
-<div class="container" id="menu-con">
-	<div class="wrapper">
-			<ul id="dash-b">
-					<li><a href="<?=base_url()."employees/";?>" class="g-button green"><i class="icon-white icon-th"></i> View All</a></li>
-					<li><a href="<?=base_url()."employees/modify/".$e_info['id'];?>" class="g-button green"><i class="icon-white icon-edit"></i> Modify</a></li>
-					<li><a href="<?=base_url()."employees/delete/".$e_info['id'];?>" onclick="return confirm('Are you sure you want to delete?')" class="g-button red"><i class="icon-white icon-trash"></i> Delete</a></li>
-					<li class="sli"> <form action="<?=base_url()."employees";?>"  method="POST">Search <input type="text" class="l-input" id="search_box"  name="search-box" style="margin-right:9px" /> <button name="s-btn" class="g-button blue right"><i class="icon-search icon-white"></i> Search</button></form></li>
-						
-				</ul>
-	</div>
-</div>
-<div class="container" id="admin">
-	<div class="wrapper minh">
-					<h1 class="title2">Employee's Information</h1>
-					<div class="thebox">
+
+<div class="container" >
+				<h1 class="title pull-left"><span>Employees</span></h1>
+						<form method="POST" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
+					    <input type="text" placeholder="Search Employees Name"  class="input-large search-query" name="query">
+					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
+					    </form>
+					    <br  class="clear" />
+				<div class="well">
 					<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
+						<h2>Information</h2>
 						<table style="margin:0" id="tbl-emp">
-							<tr><td><p>Despartment<br />
+							<tr><td><p>Department<br />
 									<div class="g-button-group tdepcon" id="dep-c" >
 									  <a class="g-button  blue department"  href="#">
 											<span id="tdep" title="Select Department"><?=$e_info['dep_name'];?></span> <span class="caret"></span>
 						
 									  </a>
-				
 
 									</div>
 									</p>
@@ -105,5 +99,5 @@
 					</div>
 				
 							
-	</div>
+
 </div>
