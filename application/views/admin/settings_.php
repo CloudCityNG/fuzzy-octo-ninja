@@ -7,16 +7,16 @@
 </div>//-->
 <div class="container" id="admin">
 	<div class="wrapper minh">
-					<h1 class="title2"><span>Account Settings</span></h1>
+					<h1 class="title">Account Settings</h1>
 							
 					<div class="thebox">
-					<div id="lefnav" class="left">
-					<img src="<?=base_url()."public/images/avatar.png";?>" />
-					<h1 style="line-height:20px"><span style="font-size:18px">Name : </span> <br /> <?=$a_info['firstname']." ".$a_info['mid_name']." ".$a_info['lastname'];?></h1>
+					<div class="left">
+					<img src="<?=base_url()."public/img/avatar.png";?>" />
+					<h1 style="line-height:20px"><small>Name :  <?=$a_info['firstname']." ".$a_info['mid_name']." ".$a_info['lastname'];?></small></h1>
 					</div>
-					<div class="right" id="sttngs">
-					<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
-					<?=isset($error) ? "<p class='error'>".$error."</p>" : null;?>
+					<div class="right well">
+					<?=isset($success) ? "<div class='alert alert-success'>".$success."</div>" : null;?>
+					<?=isset($error) ? "<div class='alert alert-error'>".$error."</div>" : null;?>
 					
 					<h1 class="title2"><span>Personal information</span></h1>
 					<p>Update your personal information then click on save changes to see changes</p>
@@ -66,7 +66,7 @@
 												<td>Contact Number <br /><br /><input type="text" class="inp-small" value="<?=$a_info['contact'];?>" autocomplete="off" name="cnumber" id="cnumber"></td>
 											</tr>
 										</table>
-					<input type="submit" name="acc_info" value="Save" class="g-button green"/>
+					<input type="submit" name="acc_info" value="Save" class="btn btn-success btn-large"/>
 					</form>
 					<h1 class="title2"><span>Change password</span></h1>
 					<p>Change your password frequently to prevent your account from attack.</p>
@@ -75,7 +75,7 @@
 							<p>New password <br /><input type="password" name="newpass" class="chp"/></p>
 							<p>Retype password <br /><input type="password" name="retypepass" class="chp"/></p>
 							
-							<input type="submit" value="Change Password" name="change" class="g-button green"/>
+							<input type="submit" value="Change Password" name="change" class="btn btn-large btn-success"/>
 						</form>
 						</div>
 						<br class="clear" />

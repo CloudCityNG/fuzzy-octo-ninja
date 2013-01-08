@@ -1,3 +1,4 @@
+
 <!Doctype html>
 <html lang="eng">
 <head>
@@ -10,6 +11,9 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 </style>
 <script type="text/javascript">
 /*Your script here*/
+$(document).ready(function(){
+  $('#myTab a:last').tab('show');
+});
 </script>
 </head>
 <body>
@@ -19,22 +23,21 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
     <a class="brand" href="<?=base_url();?>">UCC
 <small>Admin panel</small></a>
     <ul class="nav" style="margin:0">
-    <li class="active" ><a href="#" >Home</a></li>
-       <!-- <?php
-        $Branches = array('Commonwealth','Fairview','España','Shaw');
-        ?>
+    <li class="active" ><a href="<?=base_url();?>" >Home</a></li>
+
                       <li id="fat-menu" class="dropdown">
-                        <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Branches <b class="badge badge-success"><?=count($Branches);?></b></a>
+                        <a href="<?=base_url().'leave/';?>" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Leave Request <?=($leavecnt==0) ? null : "<span class='badge badge-success'>".$leavecnt['count']."</span>";?></b></a>
                         <ul class="dropdown-menu" role="menu" >
 
                           <?php
-                            foreach ($Branches as $key ) {
-                               echo "<li><a href='#'>".$key."</a></li>";
+                            foreach ($whoAreThem as $key =>$value) {
+                               echo "<li><a href='".base_url().'leave/view/'.$value['emp_id']."/".$value['id']."' >".$value['firstname']." ".$value['lastname']." <span class='label label-warning'>View</span></a></li>";
                             }
                           ?>
-                          
+                          <li class="divider"></li>
+                          <li><a href="<?=base_url().'leave/';?>">View All</a></li>
                         </ul>
-                      </li>-->
+       </li>
         
 
     </ul>

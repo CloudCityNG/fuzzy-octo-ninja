@@ -39,7 +39,7 @@
           
                 	</ul>
              	 </li>
-              
+              <li><a href="#">Daily Time Record</a></li>
               
             </ul>
 		

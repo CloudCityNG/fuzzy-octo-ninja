@@ -5,13 +5,18 @@ class dailytimerecord extends MVC_controller{
 	private $fr;
 	private $to;
 	private $c_off;
+	public $whoAreThem;
 	public function __construct(){
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
+		$this->cnt = $this->checkLeave->countLeave();
+			$this->whoAreThem = $this->checkLeave->whoAreThem();
 	}
 	
 	public function index(){
 	$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
+	$data['leavecnt'] = $this->cnt;
+	$data['whoAreThem'] = $this->whoAreThem;
 		if(isset($_POST['s-dtr'])){
 		//$month = array(1=>'Jan',2=>'Feb',3=>'Mar',4=>'Apr',5=>'May',6=>'Jun',7=>'Jul',8=>'Aug',9=>'Sep',10=>'Oct',11=>'Nov',12=>'Dec');
 		$s = array('07',23);
@@ -83,7 +88,8 @@ class dailytimerecord extends MVC_controller{
 
 	public function summary(){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
-	
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
 		if(isset($_POST['smry'])){
 
 		 $data['fora'] = $d = r_string($_POST['dte']);

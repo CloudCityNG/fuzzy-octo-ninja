@@ -1,13 +1,20 @@
 <?php
 class account extends MVC_controller{
+	public $cnt = 0;
+	public $whoAreThem;
 	public function __construct(){
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
+		$this->cnt = $this->checkLeave->countLeave();
+			$this->whoAreThem = $this->checkLeave->whoAreThem();
+
 	}
 	
 	public function index(){
 	$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
-			$this->load->render('common/adminheader_',$data);
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
+		$this->load->render('common/adminheader_',$data);
 		$this->load->render('admin/admin_',$data);
 		$this->load->render('common/footer_',$data);
 	}
@@ -91,7 +98,9 @@ class account extends MVC_controller{
 		$query = $this->db->prepare('SELECT * FROM employees WHERE id=:id');
 		$query->execute(array('id'=>$uid));
 		$data['a_info'] = $query->fetch(PDO::FETCH_ASSOC);
-		$this->load->render('common/adminheader_',$data);
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/settings_',$data);
 		$this->load->render('common/footer_',$data);
 	}
@@ -100,7 +109,6 @@ class account extends MVC_controller{
 	public function changepass(){
 	$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 	$uid = $this->session->_get('uid');
-
 
 		print_r($s);
 		if(isset($_POST['change'])){
@@ -129,7 +137,8 @@ class account extends MVC_controller{
 				}
 		}
 	}
-	
+
+	$data['leavecnt'] = $this->cnt;
 		$this->load->render('common/adminheader_',$data);
 		$this->load->render('admin/changepassword_',$data);
 		$this->load->render('common/footer_',$data);
@@ -137,7 +146,10 @@ class account extends MVC_controller{
 	
 	public function benefits(){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
+			$data['leavecnt'] = $this->cnt;
+			$data['whoAreThem'] = $this->whoAreThem;
 		$uid = $this->session->_get('uid');
+
 			
 		
 		
@@ -171,7 +183,7 @@ class account extends MVC_controller{
 		$query = $this->db->prepare('SELECT * FROM employees WHERE id=:id');
 		$query->execute(array('id'=>$uid));
 		$data['a_info'] = $query->fetch(PDO::FETCH_ASSOC);
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/benefits_',$data);
 		$this->load->render('common/footer_',$data);
 	}

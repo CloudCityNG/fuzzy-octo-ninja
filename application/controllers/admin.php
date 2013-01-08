@@ -1,21 +1,20 @@
 <?php
 
 class admin extends MVC_controller{
-	
+	public $cnt = 0;
+	public $whoAreThem;
 	public function __construct(){
 		parent::__construct();
 			if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
+			$this->cnt = $this->checkLeave->countLeave();
+		$this->whoAreThem = $this->checkLeave->whoAreThem();
+	
 	}
 	public function index(){
 
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
-		
-		
-		$l = $this->db->prepare('SELECT COUNT(*) as count FROM leave_request WHERE status=0');
-		$l->execute();
-		$a = $l->fetch(PDO::FETCH_ASSOC); 
-		$data['leavecnt'] = ($a['count']==0) ? null : $a['count'];
-		
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/admin_',$data);
 		$this->load->render('common/footer_',$data);

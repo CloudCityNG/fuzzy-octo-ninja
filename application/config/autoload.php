@@ -10,7 +10,7 @@
 *	-db
 *	-session
 */
-$config['models'] = array('session','db','validate','user','crud','compute','reportsmodel');
+$config['models'] = array('session','db','validate','user','crud','compute','reportsmodel','checkLeave');
 
 //Helpers
 //e.g. array('default','helper1');

@@ -1,9 +1,13 @@
 <?php
 
 class reports extends MVC_controller{
+	public $cnt = 0;
+	public $whoAreThem;
 	public function __construct(){
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
+		$this->cnt = $this->checkLeave->countLeave();
+			$this->whoAreThem = $this->checkLeave->whoAreThem();
 	
 	}
 

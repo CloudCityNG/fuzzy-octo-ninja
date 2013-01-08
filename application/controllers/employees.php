@@ -1,15 +1,19 @@
 <?php
 class employees extends MVC_controller{
 	private $s = false;
+	public $whoAreThem;
 	public function __construct(){
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
+		$this->cnt = $this->checkLeave->countLeave();
+			$this->whoAreThem = $this->checkLeave->whoAreThem();
 	}
 	
 	public function index(){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['emp'] = $s = $this->crud->read('SELECT e.id,e.firstname,e.contact,e.lastname,e.mid_name,d.dep_name,j.job_name,e.hiredate FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id ORDER BY e.id DESC',array('id'=>$this->session->_get('uid')));
-
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
 		//important
 		if($_POST['gen']){
 		
@@ -35,6 +39,8 @@ class employees extends MVC_controller{
 	
 	public function add(){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
 		//select department
 		$data['gdep'] = $dept = $this->crud->read('select * from departments');
 		
@@ -83,6 +89,7 @@ class employees extends MVC_controller{
 				}
 			return false;
 		}
+
 		$this->load->render('common/adminheader_',$data);
 		$this->load->render('admin/employees_add_',$data);
 		$this->load->render('common/footer_',$data);
@@ -102,6 +109,7 @@ class employees extends MVC_controller{
 	
 	private function info($id,$action){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
+
 		$data['gdep'] = $dept = $this->crud->read('select * from departments');
 		$q = $this->db->prepare('SELECT e.position,e.id,e.firstname,e.lastname,e.mid_name,d.dep_name,j.job_name,j.b_salary,e.sex,e.bday,e.age,e.civil_status,e.address,e.religion,
 			e.contact,e.sss,e.philhealth,e.pagibig,e.tin FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id AND e.id=:emp_id');	
@@ -150,6 +158,8 @@ class employees extends MVC_controller{
 	}
 	
 	public function delete($id = false){
+	$data['leavecnt'] = $this->cnt;
+	$data['whoAreThem'] = $this->whoAreThem;
 	if(!empty($id[0])){
 	$this->crud->delete('employees',array('id'=>$id[0]));
 	$this->crud->delete('users',array('uid'=>$id[0]));

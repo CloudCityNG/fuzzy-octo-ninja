@@ -9,7 +9,7 @@
 					<form action="<?=base_url()."main/login";?>" method="POST">
 						 <fieldset>
 						<h1 class="title" style="color:gray">Login</h1>
-						<?=(isset($error))? "<p class='label label-important'>".$error."</p>": null;?>
+						<?=(isset($error))? "<p class='alert alert-error'>".$error."</p>": null;?>
 						<p><input type="text" placeholder="Username" name="userLogin" autofocus="autofocus"/></p>
 						<p><input type="password" placeholder="Password" name="userPass" /></p>
 						<p>
