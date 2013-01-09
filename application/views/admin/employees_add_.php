@@ -15,7 +15,7 @@
 						<table style="margin:0" id="tbl-emp">
 							<tr><td><p>Department<br />
 									
-									  <select>
+									  <select id="selectDep" class="select btn-info">
 									  	<option>Select Department</option>
 									  	<?php
 										foreach($gdep as $key){
@@ -31,7 +31,7 @@
 									</td>
 									<td><p>
 									Job Position<br />
-									<select>
+									<select class="select btn-info">
 									  	<option>Select Department</option>
 									  	<?php
 										foreach($gdep as $key){

@@ -4,8 +4,8 @@
 <head>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <?php
-load_sfiles('public/js/','.js',array('bootstrap.min','bootstrap-dropdown','bootstrap-editable','prettify','bootstrap-dropdown','bootstrap-tab'));
-load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','google-bootstrap','bootstrap-editable','prettify','style'));?>
+load_sfiles('public/js/','.js',array('bootstrap.min','bootstrap-dropdown','bootstrap-editable','prettify','bootstrap-dropdown','bootstrap-tab','select2'));
+load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','google-bootstrap','bootstrap-editable','prettify','style','select2'));?>
 <style type="text/css">
 <!--
 /*Your style here*/
@@ -15,12 +15,23 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 <script type="text/javascript">
 /*Your script here*/
 $(document).ready(function(){
-
+  $('.select').select2();
+  $('#selectDep').bind('change',function(){
+      alert(1);
+  });
 });
 function addmore(){
   var x = "<p><input type='text' name='pos[]' class='inp-search'  /></p>";
   $('#addmorespan').append(x);
   }
+
+function genUname(fnameval){
+  lname = document.getElementById('lname');
+  document.getElementById('uname').readOnly = true;
+  document.getElementById('pword').readOnly = true;
+  document.getElementById('uname').value = lname.value.substring(0,1)+fnameval+"_";
+  document.getElementById('pword').value = lname.value.substring(0,1)+fnameval+"_";
+}
 </script>
 </head>
 <body>
