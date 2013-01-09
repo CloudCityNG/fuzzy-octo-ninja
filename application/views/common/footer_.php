@@ -6,8 +6,6 @@
 </div>
 
 
-<?php
-load_static('public/js/','js');
-?>
+
 </body>
 </html>

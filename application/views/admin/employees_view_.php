@@ -1,10 +1,38 @@
 
+ <ul class="nav nav-list">
+                <li class=""><a href="#lA" data-toggle="tab">Section 1</a></li>
+                <li class="active"><a href="#lB" data-toggle="tab">Section 2</a></li>
+                <li><a href="#lC" data-toggle="tab">Section 3</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" id="lA">
+                  <p>I'm in Section A.</p>
+                </div>
+                <div class="tab-pane active" id="lB">
+                  <p>Howdy, I'm in Section B.</p>
+                </div>
+                <div class="tab-pane" id="lC">
+                  <p>What up girl, this is Section C.</p>
+                </div>
+              </div>
+            </div>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		  $('#firstname').editable({
-		  	url:'<?=base_url()."employees/save";?>'
-		  });
+		  
+
+		  <?php
+
+		  $fields = array('lastname','firstname','mid_name','address','contact');
+
+		  foreach($fields as $key){
+		  		?>
+		  		$('#<?=$key;?>').editable({url:'<?=base_url()."employees/save";?>'});
+		  		<?php
+		 	 }
+
+		  ?>
 	});
 
 </script>
@@ -21,12 +49,28 @@
 	<div class="pull-left" style="width:200px;">
 		    <ul class="nav nav-list">
 		    <li class="nav-header">Navigation</li>
-		    <li class="active"><a href="#">Basic Information</a></li>
-		    <li><a href="#">User Accounts</a></li>
-		    <li><a href="#">Benefits Accounts</a></li>
+		    <li class="active"><a href="#1A">Basic Information</a></li>
+		    <li><a href="#1B">User Accounts</a></li>
+		    <li><a href="#1C">Benefits Accounts</a></li>
 
 		    </ul>
+
+
+		     <div class="tab-content">
+				
+				<div class="tab-pane" id="lA">
+                  <p>I'm in Section A.</p>
+                </div>
+                <div class="tab-pane active" id="lB">
+                  <p>Howdy, I'm in Section B.</p>
+                </div>
+                <div class="tab-pane" id="lC">
+                  <p>What up girl, this is Section C.</p>
+                </div>
+			</div>
 	</div>
+
+
 
 	<div class="pull-right well well-small" style="width:710px">
 			    <div class="alert alert-info">
@@ -38,13 +82,14 @@
 			<table class="table table-condensed">
 																					
 				<tr><td class="frst">First Name </td><td>:</td><td> <strong class="editable" id="firstname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Firstname"><?=$e_info['firstname'];?></strong></td>
-				<tr><td class="frst">Last Name </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['lastname'];?></strong></td>
-				<tr><td class="frst">Middle Name </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['mid_name'];?></strong></td>
-				<tr><td class="frst">Status </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['civil_status'];?></strong></td>
-				<tr><td class="frst">Department </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['dep_name'];?></strong></td>
-				<tr><td class="frst">Position </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['job_name'];?></strong></td></tr>
-				<tr><td class="frst">Salary </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['b_salary']." PHP";?></strong></td></tr>
-				<tr><td class="frst">Birthdate </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['bday'];?></strong></td></tr>
+				<tr><td class="frst">Last Name </td><td>: </td><td><strong class="editable" id="lastname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Lastname"><?=$e_info['lastname'];?></strong></td>
+				<tr><td class="frst">Middle Name </td><td>: </td><td><strong class="editable" id="mid_name" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Middlename"><?=$e_info['mid_name'];?></strong></td>
+				<tr><td class="frst">Contact </td><td>: </td><td><strong class="editable" id="contact" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Contact Number"><?=$e_info['contact'];?></strong></td>
+				<tr><td class="frst">Status </td><td>: </td><td><strong><?=$e_info['civil_status'];?></strong></td>
+				<tr><td class="frst">Department </td><td>: </td><td><strong><?=$e_info['dep_name'];?></strong></td>
+				<tr><td class="frst">Position </td><td>: </td><td><strong ><?=$e_info['job_name'];?></strong></td></tr>
+				<tr><td class="frst">Salary </td><td>: </td><td><strong ><?=$e_info['b_salary']." PHP";?></strong></td></tr>
+				<tr><td class="frst">Birthdate </td><td>: </td><td><strong ><?=$e_info['bday'];?></strong></td></tr>
 				<tr><td class="frst">Age </td><td>: </td><td><strong><?=$e_info['age'];?></strong></td></tr>
 				<tr><td class="frst">Gender </td><td>: </td><td><strong>
 					<?php
@@ -56,7 +101,7 @@
 
 					?>
 				</strong></td></tr>
-				<tr><td class="frst">Address </td><td>: </td><td><strong><?=$e_info['address'];?></strong></td></tr>
+				<tr><td class="frst">Address </td><td>: </td><td><strong class="editable" id="address" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Address"><?=$e_info['address'];?></strong></td></tr>
 				<tr><td class="frst">Religion </td><td>: </td><td><strong><?=$e_info['religion'];?></strong></td></tr>
 			</table>
 		

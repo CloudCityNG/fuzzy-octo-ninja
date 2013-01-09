@@ -24,7 +24,9 @@
 							<td><?=$name;?></td>
 								
 								<td><?=$key['dep_name'];?></td><td><?=$key['job_name'];?></td><td><?=$key['contact'];?></td><td><?=$key['hiredate'];?></td>
-								<td><a href="<?=base_url()."employees/view/".$key['id']?>" class="btn btn-small btn-mini btn-success" title="View"><i class="icon-th-list icon-white"></i></a>
+								
+
+								<td><a href="<?=base_url()."employees/view/".$key['id']?>" class="btn btn-small btn-mini btn-success" title="View Or Modify" id="modify"><i class="icon-th-list icon-white"></i></a>
 												<!--<a href="<?=base_url()."employees/modify/".$key['id']; ?>" class="btn btn-small btn-mini btn-warning" title="Modify"><i class="icon-edit icon-white"></i></a>-->
 												<a href="<?=base_url()."employees/delete/".$key['id']; ?>" title="Delete" onclick="return confirm('Are you sure you want to delete <?php echo $name; ?>')" class="btn btn-small btn-mini btn-danger"><i class="icon-trash icon-white"></i></a></td>
 											

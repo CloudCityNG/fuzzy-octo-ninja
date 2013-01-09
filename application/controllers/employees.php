@@ -179,9 +179,15 @@ class employees extends MVC_controller{
 	}
 
 	public function save(){
-	$pk = $_POST['pk'];
-    $name = $_POST['name'];
-    $value = $_POST['value'];
-    $this->crud->update('employees',array($name=>$value),array('id'=>$pk));
+
+		if(isset($_POST['name'])){
+    		$name = $_POST['name'];
+			$pk = $_POST['pk'];
+    		$value = $_POST['value'];
+    		$this->crud->update('employees',array($name=>$value),array('id'=>$pk));
+    	}else{
+    		redirect('employees');
+    	}
+
     }
 }

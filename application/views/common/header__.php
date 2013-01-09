@@ -2,7 +2,9 @@
 <!Doctype html>
 <html lang="eng">
 <head>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <?php
+load_sfiles('public/js/','.js',array('bootstrap.min','bootstrap-dropdown','bootstrap-editable','prettify','bootstrap-dropdown','bootstrap-tab'));
 load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','google-bootstrap','bootstrap-editable','prettify','style'));?>
 <style type="text/css">
 <!--
@@ -10,13 +12,10 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 
 -->
 </style>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type='text/javascript' src='http://localhost/fuzzy-octo-ninja/public/js/bootstrap.js'></script>
 <script type="text/javascript">
 /*Your script here*/
 $(document).ready(function(){
-  $('#myTab a:last').tab('show');
-
+  $('#modify').tab('show');
 });
 
 /*
