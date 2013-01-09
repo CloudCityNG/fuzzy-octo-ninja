@@ -1,15 +1,7 @@
-<div class="container" id="menu-con">
-	<div class="wrapper">
-			<ul id="dash-b">
-					<li><a href="<?=base_url()."jobanddep/position/";?>" class="g-button green" data-reveal-id="myModal" onClick="addPos()"><i class="icon-white icon-plus-sign"></i> Add Position</a></li>
-					<li><a href="<?=base_url()."jobanddep/";?>" class="g-button green" ><i class="icon-white icon-plus-sign"></i>Departments</a></li>
-						
-				</ul>
-	</div>
-</div>
-<div class="container" id="admin">
-	<div class="wrapper minh">
-					<h1 class="title2">Departments and Positions</h1>
+
+<div class="container" >
+
+					<h1 class="title">Departments and Positions</h1>
 					<form action="<?=base_url()."employees/add";?>" method="POST" onsubmit="return validate();">
 					<div class="thebox">
 					<?=(isset($successremove)) ? $successremove : null;?>
@@ -24,7 +16,7 @@
 							
 										
 										foreach($gdep as $key){
-										echo "<li><a href='".base_url()."jobanddep/department/view/".$key['id']."' class='slectdep' id='dp_".$key['id']."' title='".$key['dep_name']."'>".$key['dep_name']."</a></li>";
+										echo "<li><a href='".base_url()."depandpos/department/view/".$key['id']."' class='slectdep' id='dp_".$key['id']."' title='".$key['dep_name']."'>".$key['dep_name']."</a></li>";
 										}
 										
 										
@@ -35,7 +27,7 @@
 									<br class="clear" />
 					<h1 class="ttle">Positions</h1>
 					<div class="datagrid left" style="margin-top:10px;width:400px">
-					<table width="100%" cellspacing="0" id="deptbl">
+					<table class="table" width="100%" cellspacing="0" id="deptbl">
 						<thead>
 						<tr>
 							<th class="jtr">Positions</th>
@@ -47,8 +39,8 @@
 							?>
 							<tr><td class='jtr'><?=$key['job_name'];?></td>
 							<td>
-							<a href="<?=base_url()."jobanddep/jobs/".$key['id'];?>" onClick="to_modf_pos('<?=$key['job_name'];?>',<?=$key['id'];?>)" class="to_modf g-button green mini no-text" title="Modify" data-reveal-id='myModal2' id="to_modf/<?=$key['id'];?>"><i class="icon-edit icon-white"></i></a>
-							<a onclick="return confirm('Are you sure you want to delete this Position?')" href="<?=base_url()."jobanddep/department/view/".$current_id."/remove/".$key['id'];?>" class="g-button red mini no-text" class="Delete" title="Delete"><i class="icon-trash icon-white"></i></a>
+							<a href="<?=base_url()."depandpos/jobs/".$key['id'];?>" onClick="to_modf_pos('<?=$key['job_name'];?>',<?=$key['id'];?>)" class="to_modf g-button green mini no-text" title="Modify" data-reveal-id='myModal2' id="to_modf/<?=$key['id'];?>"><i class="icon-edit icon-white"></i></a>
+							<a onclick="return confirm('Are you sure you want to delete this Position?')" href="<?=base_url()."depandpos/department/view/".$current_id."/remove/".$key['id'];?>" class="g-button red mini no-text" class="Delete" title="Delete"><i class="icon-trash icon-white"></i></a>
 							</td></tr>
 								<?php
 								}
@@ -58,7 +50,5 @@
 				
 					<br class="clear" />
 					</div>
-					
-							
-	</div>
+
 </div>

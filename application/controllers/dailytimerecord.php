@@ -80,7 +80,7 @@ class dailytimerecord extends MVC_controller{
 
 
 		
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/dtr_',$data);
 		$this->load->render('common/footer_',$data);
 	}
@@ -126,7 +126,7 @@ class dailytimerecord extends MVC_controller{
 		$data['emp'] = $this->e;
 	
 		$data['d'] = $this->from." to ".$this->to;
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/dtrsummary_',$data);
 		$this->load->render('common/footer_');
 		}
@@ -178,7 +178,7 @@ class dailytimerecord extends MVC_controller{
 
 		$data['emp'] = $this->e;
 		$data['d'] = $this->from." to ".$this->to;
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/pay_success',$data);
 		$this->load->render('common/footer_');
 		}		

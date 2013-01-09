@@ -14,7 +14,7 @@ class account extends MVC_controller{
 	$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['leavecnt'] = $this->cnt;
 		$data['whoAreThem'] = $this->whoAreThem;
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/admin_',$data);
 		$this->load->render('common/footer_',$data);
 	}
@@ -139,7 +139,7 @@ class account extends MVC_controller{
 	}
 
 	$data['leavecnt'] = $this->cnt;
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/changepassword_',$data);
 		$this->load->render('common/footer_',$data);
 	}

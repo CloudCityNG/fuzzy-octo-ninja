@@ -50,7 +50,7 @@ class depandpos extends MVC_controller{
 						$a = $b->execute(array('id'=>$lastid,'job'=>$key));
 					}
 		
-				$data['rs'] = "<div class='success'>Department and Position(s) was successfully add. <a href='".base_url()."jobanddep' >Reload page</a></div>";
+				$data['rs'] = "<div class='success'>Department and Position(s) was successfully add. <a href='".base_url()."depandpos' >Reload page</a></div>";
 			}
 	}
 
@@ -77,7 +77,7 @@ class depandpos extends MVC_controller{
 	public function department($id = false){
 	$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 	$data['current_id'] = $id[1];
-	if(!isset($id[0]) || !isset($id[1])){redirect('jobanddep');}
+	if(!isset($id[0]) || !isset($id[1])){redirect('depandpos');}
 	
 			if($id[0]=='view'){
 			$data['current'] =$c = $this->crud->read('select id,dep_name from departments where id=:id',array('id'=>$id[1]));
@@ -91,13 +91,13 @@ class depandpos extends MVC_controller{
 				$res = $this->crud->delete('jobs',array('id'=>$id[3]));
 
 					if($res==true){
-						redirect('jobanddep/department/view/'.$id[1]);
+						redirect('depandpos/department/view/'.$id[1]);
 						$data['successremove'] = "<div class='success'>Position was successfully remove.</div>";
 					}
 			}
 			
 			
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/department_',$data);
 		$this->load->render('common/footer_',$data);
 	}
@@ -112,13 +112,13 @@ class depandpos extends MVC_controller{
 			if(!is_array($result)){
 					$c = $this->crud->delete('departments',array('id'=>$id));
 					$data['successdel'] = "Department was successfully Remove.";
-					redirect('jobanddep/');
+					redirect('depandpos/');
 
 				}else{
 					$data['errordel'] = "<div class='error'>Ooops...You can't remove this Department.Please remove Position under of this Department</div>"; 
 				}
 				
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/jad_',$data);
 		$this->load->render('common/footer_',$data);
 		
@@ -132,7 +132,7 @@ class depandpos extends MVC_controller{
 	$data['jobs'] =$j = $this->crud->read('select * from jobs where dep_id=:id',array('id'=>$id[0]));
 		print_r($c);
 
-	$this->load->render('common/adminheader_',$data);
+	$this->load->render('common/header__',$data);
 		$this->load->render('admin/department_',$data);
 		$this->load->render('common/footer_',$data);
 	}

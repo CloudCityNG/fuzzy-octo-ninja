@@ -15,7 +15,7 @@ class reports extends MVC_controller{
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		
 
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/reports_');
 
 		$this->load->render('common/footer_',$data);
@@ -24,7 +24,7 @@ class reports extends MVC_controller{
 	public function payslip(){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['result'] = $this->reportsmodel->pslip();
-		$this->load->render('common/adminheader_',$data);
+		$this->load->render('common/header__',$data);
 		$this->load->render('admin/reports_');
 		$this->load->render('admin/payslip',$data);
 		$this->load->render('common/footer_',$data);

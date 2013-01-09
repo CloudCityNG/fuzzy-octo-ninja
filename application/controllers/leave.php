@@ -15,7 +15,7 @@ class leave extends MVC_controller{
 		$data['leave'] =$ab= $this->crud->read('SELECT lvr.id,lvr.emp_id,emp.firstname,emp.lastname,emp.mid_name,jb.job_name,emp.salary,lvr.leave_apply,lvr.reason,lvr.fr,lvr.tod,lvr.date,lvr.id, lvr.status
 		FROM employees AS emp, leave_request AS lvr,jobs AS jb WHERE lvr.emp_id=emp.id AND emp.position=jb.id');
 		
-		//dependencies : adminheader_.php, leave_.php {view leave reason}
+		//dependencies : header__.php, leave_.php {view leave reason}
 		if($_POST['pst']){
 			$id = explode('/',$_POST['id']);
 			//print_r($id);
@@ -31,7 +31,7 @@ class leave extends MVC_controller{
 			$this->load->render('admin/leave_view_spec',$data);
 			return false;
 		}
-		//dependencies : adminheader_.php, leave_.php {accep leave request for particular request}
+		//dependencies : header__.php, leave_.php {accep leave request for particular request}
 		if($_POST['accpt']){
 				$id =  $_POST['id'];
 				$this->crud->update('leave_request',array('status'=>1),array('id'=>$id));

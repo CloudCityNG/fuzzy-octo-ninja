@@ -21,7 +21,7 @@
 								
 									</div>
 			
-			<form onSubmit="return validate();" action="<?=base_url().'jobanddep/';?>" id="idaddpos" method="POST">
+			<form onSubmit="return validate();" action="<?=base_url().'depandpos/';?>" id="idaddpos" method="POST">
 			
 			<input type="hidden" id="dep_n" value="" name="dep_id" class="inp-search">
 		

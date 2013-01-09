@@ -1,8 +1,8 @@
 <div class="container" id="admin">
-	<div class="wrapper minh">
+
 					<h1 class="title"><span>Leave request</span></h1>		
 	
-
+<div class="datagrid">
 	<table class="table table-striped">
 								<thead>	<tr><th>Emp_ID</th><th>Employees Name</th><th>Position</th><th>Salary</th><th>Leave to apply</th><th>Reason</th><th>From</th><th>To</th><th>Date request</th><th>Satus</th></tr>
 	</thead>
@@ -21,6 +21,8 @@
 	?>
 								</tbody>
 								</table>
+
+</div>
 	
-	</div>
+	
 </div>

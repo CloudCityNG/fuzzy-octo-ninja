@@ -17,6 +17,10 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 $(document).ready(function(){
 
 });
+function addmore(){
+  var x = "<p><input type='text' name='pos[]' class='inp-search'  /></p>";
+  $('#addmorespan').append(x);
+  }
 </script>
 </head>
 <body>

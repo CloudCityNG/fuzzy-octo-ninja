@@ -8,7 +8,8 @@
 					    </form>
 					    <br class="clear"  />
 							<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
-				
+					<div class="datagrid">
+					
 							<table class="table">
 								<thead><tr><th>Emp ID</th><th>Employee Name</th><th>Department</th><th>Position</th><th>Contact</th><th>Hire Date</th><th>Action</th></tr></thead>
 
@@ -34,6 +35,7 @@
 								<?}?>
 								</tbody>
 								</table>
+							</div>
 
 						
 

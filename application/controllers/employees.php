@@ -174,7 +174,7 @@ $data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 	}else{
 		redirect('employees');
 	}
-	$this->load->render('common/adminheader_',$data);
+	$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_',$data);
 		$this->load->render('common/footer_',$data);
 	}
