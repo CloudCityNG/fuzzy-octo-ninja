@@ -3,7 +3,7 @@
 <html lang="eng">
 <head>
 <?php
-load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','google-bootstrap','prettify','style'));?>
+load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','google-bootstrap','bootstrap-editable','prettify','style'));?>
 <style type="text/css">
 <!--
 /*Your style here*/
@@ -11,12 +11,16 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 -->
 </style>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+<script type='text/javascript' src='http://localhost/fuzzy-octo-ninja/public/js/bootstrap.js'></script>
 <script type="text/javascript">
 /*Your script here*/
 $(document).ready(function(){
   $('#myTab a:last').tab('show');
-   $.ajaxSetup({
+
+});
+
+/*
+$.ajaxSetup({
           url: '<?=base_url()."employees/save/"?>',
           type: 'POST',
           async: false,
@@ -37,14 +41,11 @@ $(document).ready(function(){
             return html === 'OK' ? true : false;
         }
     });
-});
 
-
+*/
 </script>
 </head>
 <body>
-
-
 
 <div class="navbar navbar-inverse">
     <div class="navbar-inner">

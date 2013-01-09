@@ -1,4 +1,13 @@
 
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		  $('#firstname').editable({
+		  	url:'<?=base_url()."employees/save";?>'
+		  });
+	});
+
+</script>
 <div class="container" >
 				<h1 class="title pull-left"><span>Employees</span></h1>
 						<form method="POST" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
@@ -6,11 +15,15 @@
 					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
 					    </form>
 					    <br  class="clear" />
+	
+
+
 	<div class="pull-left" style="width:200px;">
 		    <ul class="nav nav-list">
 		    <li class="nav-header">Navigation</li>
 		    <li class="active"><a href="#">Basic Information</a></li>
-		    <li><a href="#">Accounts</a></li>
+		    <li><a href="#">User Accounts</a></li>
+		    <li><a href="#">Benefits Accounts</a></li>
 
 		    </ul>
 	</div>
@@ -18,12 +31,13 @@
 	<div class="pull-right well well-small" style="width:710px">
 			    <div class="alert alert-info">
 				    <h5 style="margin:0">Note!</h5>
-				    	If you want to change the information just click edit.
+				    	If you want to change the information just click the text width dashed-underline.
 				    </div>
 			<h3 class="title">Basic Information</h3>
     <h4 class="title"><?=$e_info['firstname']." ".$e_info['mid_name']." ".$e_info['lastname'];?></h4>
 			<table class="table table-condensed">
-				<tr><td class="frst">First Name </td><td>:</td><td> <strong class="editable" id="fname"><?=$e_info['firstname'];?></strong></td>
+																					
+				<tr><td class="frst">First Name </td><td>:</td><td> <strong class="editable" id="firstname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Firstname"><?=$e_info['firstname'];?></strong></td>
 				<tr><td class="frst">Last Name </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['lastname'];?></strong></td>
 				<tr><td class="frst">Middle Name </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['mid_name'];?></strong></td>
 				<tr><td class="frst">Status </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['civil_status'];?></strong></td>
