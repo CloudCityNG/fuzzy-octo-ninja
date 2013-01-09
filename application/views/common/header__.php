@@ -24,14 +24,16 @@ $(document).ready(function(){
     });
 
   $('.editable').inlineEdit({
-        value: $.ajax({ data: { 'action': 'POST' } }).responseText,
-        save: function(event, data) {
+       buttons: '<a href="#" class="save btn btn-success"><i class="icon-ok icon-white"></i></a></div>',
+       cancelOnBlur:true, 
+    value: $.ajax({ data: { 'action': 'POST' } }).responseText,
+      save: function(event, data) {
             var html = $.ajax({
                 data: { 'action': 'save', 'value': data.value }
             }).responseText;
             alert(html);
-           // alert("id: " + this.id );
-            
+           alert("id: " + this.id );
+            //this.id;
             return html === 'OK' ? true : false;
         }
     });

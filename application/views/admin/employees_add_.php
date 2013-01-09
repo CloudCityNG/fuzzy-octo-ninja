@@ -1,48 +1,49 @@
-<div class="container" id="menu-con">
-	<div class="wrapper">
-			<ul id="dash-b">
-					<li><a href="<?=base_url()."employees/";?>" class="g-button green"><i class="icon-white icon-th"></i> View All</a></li>
-					<li class="sli"> <form action="<?=base_url()."employees";?>"  method="POST">Search <input type="text" class="l-input" name="search-box" id="search_box" style="margin-right:9px" /> <button name="s-btn" class="g-button blue right"><i class="icon-search icon-white"></i> Search</button></form></li>
-						
-				</ul>
-	</div>
-</div>
-<div class="container" id="admin">
-	<div class="wrapper minh">
-					<h1 class="title2">Add Employee</h1>
-					<form action="<?=base_url()."employees/add";?>" method="POST" onsubmit="return validate();">
+<div class="container">
+	<h1 class="title pull-left"><span>Add Employee</span></h1>
+						<form method="POST" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
+					    <input type="text" placeholder="Search Employees Name"  class="input-large search-query" name="query">
+					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
+					    </form>
+					    <br class="clear"  />
+
+		<form class="well" action="<?=base_url()."employees/add";?>" method="POST" onsubmit="return validate();">
 					<div class="thebox">
 					<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
 					<h1 class="title2"><span>All fields are required</span></h1>
-						<table style="margin:0" id="tbl-emp">
-							<tr><td><p>Despartment<br />
-									<div class="g-button-group tdepcon" id="dep-c" >
-									  <a class="g-button dropdown-toggle blue department"  data-toggle="dropdown" href="#">
-											<span id="tdep" title="Select Department">Select Department </span> <span class="caret"></span>
 						
-									  </a>
-									  <ul class="dropdown-menu">
-										<?php
+
+						<table style="margin:0" id="tbl-emp">
+							<tr><td><p>Department<br />
+									
+									  <select>
+									  	<option>Select Department</option>
+									  	<?php
 										foreach($gdep as $key){
-										echo "<li><a href='#' class='slectdep' id='dp_".$key['id']."' title='".$key['dep_name']."'>".$key['dep_name']."</a></li>";
+										echo "<option>".$key['dep_name']."</option>";
 										}
 										
 										?>
-									  </ul>
-									  <input type="hidden" id="dept" name="dept" />
-									</div>
+										
+							
+									</select>
+
 									</p>
 									</td>
 									<td><p>
-									Job Position<br /><div class="g-button-group tdepcon" id="jobpos">
-									  <a class="g-button dropdown-toggle blue" data-toggle="dropdown" href="#">
-											<span id="tjo">Select Job position </span> <span class="caret"></span>
-									  </a>
-									  <ul class="dropdown-menu" id="tjob">
-									  </ul>
-									 
-									  <input type="hidden" id="jobp" name="jobp" />
-									</div></p>
+									Job Position<br />
+									<select>
+									  	<option>Select Department</option>
+									  	<?php
+										foreach($gdep as $key){
+										echo "<option>".$key['dep_name']."</option>";
+										}
+										
+										?>
+										
+							
+									</select>
+
+									</p>
 									</td><td><p>Salary <br /><div class="g-button-group"><input type="text" name="sal" id="sal" /></div></p></td></tr>
 										</table>
 										<table class="tbl-inpt">
@@ -116,5 +117,5 @@
 					</div>
 					</form>
 							
-	</div>
+
 </div>

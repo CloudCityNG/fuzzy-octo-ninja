@@ -181,6 +181,6 @@ class employees extends MVC_controller{
 	public function save(){
 		$action = isset($_POST) && $_POST['action'] ? $_POST['action'] : 'get';
 			$value  = isset($_POST) && $_POST['value'] ? $_POST['value'] : '';
-	echo "sakin to";
+	echo $value;
 	}
 }

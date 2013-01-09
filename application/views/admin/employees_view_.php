@@ -21,19 +21,18 @@
 				    	If you want to change the information just click edit.
 				    </div>
 			<h3 class="title">Basic Information</h3>
-<span class="editable">Joe Blogg</span>
     <h4 class="title"><?=$e_info['firstname']." ".$e_info['mid_name']." ".$e_info['lastname'];?></h4>
 			<table class="table table-condensed">
-				<tr><td class="frst">First Name </td><td>: <strong class="editable"><?=$e_info['firstname'];?></strong></td>
-				<tr><td class="frst">Last Name </td><td>: <strong><?=$e_info['lastname'];?></strong></td>
-				<tr><td class="frst">Middle Name </td><td>: <strong><?=$e_info['mid_name'];?></strong></td>
-				<tr><td class="frst">Status </td><td>: <strong><?=$e_info['civil_status'];?></strong></td>
-				<tr><td class="frst">Department </td><td>: <strong><?=$e_info['dep_name'];?></strong></td>
-				<tr><td class="frst">Position </td><td>: <strong><?=$e_info['job_name'];?></strong></td></tr>
-				<tr><td class="frst">Salary </td><td>: <strong><?=$e_info['b_salary']." PHP";?></strong></td></tr>
-				<tr><td class="frst">Birthdate </td><td>: <strong><?=$e_info['bday'];?></strong></td></tr>
-				<tr><td class="frst">Age </td><td>: <strong><?=$e_info['age'];?></strong></td></tr>
-				<tr><td class="frst">Gender </td><td>: <strong>
+				<tr><td class="frst">First Name </td><td>:</td><td> <strong class="editable" id="fname"><?=$e_info['firstname'];?></strong></td>
+				<tr><td class="frst">Last Name </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['lastname'];?></strong></td>
+				<tr><td class="frst">Middle Name </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['mid_name'];?></strong></td>
+				<tr><td class="frst">Status </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['civil_status'];?></strong></td>
+				<tr><td class="frst">Department </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['dep_name'];?></strong></td>
+				<tr><td class="frst">Position </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['job_name'];?></strong></td></tr>
+				<tr><td class="frst">Salary </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['b_salary']." PHP";?></strong></td></tr>
+				<tr><td class="frst">Birthdate </td><td>: </td><td><strong class="editable" id="fname"><?=$e_info['bday'];?></strong></td></tr>
+				<tr><td class="frst">Age </td><td>: </td><td><strong><?=$e_info['age'];?></strong></td></tr>
+				<tr><td class="frst">Gender </td><td>: </td><td><strong>
 					<?php
 						$gen = array('M'=>'Male','F'=>'Female');
 						foreach ($gen as $key => $value) {
@@ -43,10 +42,10 @@
 
 					?>
 				</strong></td></tr>
-				<tr><td class="frst">Address </td><td>: <strong><?=$e_info['address'];?></strong></td></tr>
-				<tr><td class="frst">Religion </td><td>: <strong><?=$e_info['religion'];?></strong></td></tr>
+				<tr><td class="frst">Address </td><td>: </td><td><strong><?=$e_info['address'];?></strong></td></tr>
+				<tr><td class="frst">Religion </td><td>: </td><td><strong><?=$e_info['religion'];?></strong></td></tr>
 			</table>
-			<a href="#" class="btn btn-success">Edit</a>
+		
 	</div>
 				
 				

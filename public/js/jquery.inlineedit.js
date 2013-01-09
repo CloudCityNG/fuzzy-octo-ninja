@@ -270,7 +270,7 @@ $.inlineEdit.prototype = {
             return '<textarea>'+ this.br2nl(value) +'</textarea>' + this.buttonHtml( { before: '<br />' } );
         },
         input: function( value ) {
-            return '<input type="text" value="'+ value.replace(/(\u0022)+/g, '') +'"/>' + this.buttonHtml();
+            return '<div class="form-search"><input class="input-large" type="text" value="'+ value.replace(/(\u0022)+/g, '') +'"/>' + this.buttonHtml();
         }
     },
 
