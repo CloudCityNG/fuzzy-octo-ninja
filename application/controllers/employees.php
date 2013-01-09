@@ -26,7 +26,7 @@ class employees extends MVC_controller{
 		//search
 		if(isset($_POST['searchEmp'])){
 			$search = r_string($_POST['query']);
-			$data['search']=$s = $this->crud->read('SELECT e.id,e.firstname,e.lastname,e.mid_name,d.dep_name,j.job_name FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id AND e.id != :id AND (firstname LIKE :search)',array('id'=>$this->session->_get('uid'),'search'=>"$search%"));
+			$data['search']=$s = $this->crud->read('SELECT e.id,e.firstname,e.lastname,e.mid_name,d.dep_name,j.job_name,e.hiredate,e.contact FROM employees as e, jobs as j, departments as d WHERE j.id=e.position AND j.dep_id=d.id AND e.id != :id AND (firstname LIKE :search)',array('id'=>$this->session->_get('uid'),'search'=>"$search%"));
 			$this->s = true;
 		}
 		
@@ -96,21 +96,19 @@ class employees extends MVC_controller{
 		$this->load->render('admin/employees_add_',$data);
 		$this->load->render('common/footer_',$data);
 	}
+
+	public function search(){
+$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
+		$data['leavecnt'] = $this->cnt;
+		$data['whoAreThem'] = $this->whoAreThem;
+		$this->load->render('common/header__',$data);
+		$this->load->render('admin/employees_search_',$data);
+		$this->load->render('common/footer_',$data);
+	}
 	
 	public function view($id = false){
-		$this->info($id[0],'view');
-		
-		
-	}
-	
-	public function modify($id = false){
-			
-			$this->info($id[0],'modify');
-			
-	}
-	
-	private function info($id,$action){
-		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
+			$id = $id[0];
+			$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 
 		$data['gdep'] = $dept = $this->crud->read('select * from departments');
 		$q = $this->db->prepare('SELECT e.position,e.id,e.firstname,e.lastname,e.mid_name,d.dep_name,j.job_name,j.b_salary,e.sex,e.bday,e.age,e.civil_status,e.address,e.religion,
@@ -150,15 +148,18 @@ class employees extends MVC_controller{
 			 
 			 $data['success'] = "Employee was successfully modify.";
 		}
+
+
 		$this->load->render('common/header__',$data);
-		if($action=='view'){
+		
 		$this->load->render('admin/employees_view_',$data);
-		}else{
-		$this->load->render('admin/employees_modf_',$data);
-		}
+		
 		$this->load->render('common/footer_',$data);
+
+		
+		
 	}
-	
+
 	public function delete($id = false){
 	$data['leavecnt'] = $this->cnt;
 	$data['whoAreThem'] = $this->whoAreThem;

@@ -24,7 +24,7 @@
 		<!--SEARCH-->
 
 		<h1 class="title pull-left"><span>Employees</span></h1>
-						<form method="POST" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
+						<form method="POST" action="<?=base_url()."employees";?>" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
 					    <input type="text" placeholder="Search Employees Name"  class="input-large search-query" name="query">
 					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
 					    </form>

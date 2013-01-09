@@ -15,33 +15,8 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 <script type="text/javascript">
 /*Your script here*/
 $(document).ready(function(){
-  $('#modify').tab('show');
+
 });
-
-/*
-$.ajaxSetup({
-          url: '<?=base_url()."employees/save/"?>',
-          type: 'POST',
-          async: false,
-          timeout: 500
-    });
-
-  $('.editable').inlineEdit({
-       buttons: '<a href="#" class="save btn btn-success"><i class="icon-ok icon-white"></i></a></div>',
-       cancelOnBlur:true, 
-    value: $.ajax({ data: { 'action': 'POST' } }).responseText,
-      save: function(event, data) {
-            var html = $.ajax({
-                data: { 'action': 'save', 'value': data.value }
-            }).responseText;
-            alert(html);
-           alert("id: " + this.id );
-            //this.id;
-            return html === 'OK' ? true : false;
-        }
-    });
-
-*/
 </script>
 </head>
 <body>
@@ -83,7 +58,7 @@ $.ajaxSetup({
                          <li class="dropdown">
                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dept. and Positions <b class="caret"></b></a>
                           <ul class="dropdown-menu">
-                            <li><a href="#"><i class="icon-list-alt"></i>View Department</a></li>
+                            <li><a href="<?=base_url()."depandpos"?>"><i class="icon-list-alt"></i>View Department</a></li>
                             <li><a href="#"><i class="icon-plus-sign"></i>Add Departments</a></li>
                             <li class="divider"></li>
                             <li><a href="#"><i class="icon-list-alt"></i>View Positions</a></li>
