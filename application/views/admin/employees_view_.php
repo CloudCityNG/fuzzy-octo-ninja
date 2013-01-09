@@ -1,21 +1,4 @@
 
- <ul class="nav nav-list">
-                <li class=""><a href="#lA" data-toggle="tab">Section 1</a></li>
-                <li class="active"><a href="#lB" data-toggle="tab">Section 2</a></li>
-                <li><a href="#lC" data-toggle="tab">Section 3</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane" id="lA">
-                  <p>I'm in Section A.</p>
-                </div>
-                <div class="tab-pane active" id="lB">
-                  <p>Howdy, I'm in Section B.</p>
-                </div>
-                <div class="tab-pane" id="lC">
-                  <p>What up girl, this is Section C.</p>
-                </div>
-              </div>
-            </div>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -37,78 +20,91 @@
 
 </script>
 <div class="container" >
-				<h1 class="title pull-left"><span>Employees</span></h1>
+		
+		<!--SEARCH-->
+
+		<h1 class="title pull-left"><span>Employees</span></h1>
 						<form method="POST" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
 					    <input type="text" placeholder="Search Employees Name"  class="input-large search-query" name="query">
 					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
 					    </form>
 					    <br  class="clear" />
 	
+<!--NAVIGATION-->
+ <ul class="nav nav-list pull-left">
+ 	   <li class="nav-header">Navigation</li>
+       <li class="active"><a href="#basic" data-toggle="tab">Basic Information</a></li>
+                <li ><a href="#benefits" data-toggle="tab">Benefits Accounts</a></li>
+                <li><a href="#uaccounts" data-toggle="tab">User Accounts</a></li>
+              </ul>
+              
+<!--CONTENT-->
+    <div class="tab-content pull-right well" style="width:710px">
+                <div class="tab-pane active" id="basic">
+                		
+	                	<div class="alert alert-info">
+					    <h5 style="margin:0">Note!</h5>
+					    	If you want to change the information just click the text width dashed-underline.
+					    </div>
+						<h3 class="title">Basic Information</h3>
+			   			 <h4 class="title"><?=$e_info['firstname']." ".$e_info['mid_name']." ".$e_info['lastname'];?></h4>
+						
+						<table class="table table-condensed">																	
+							<tr><td class="frst">First Name </td><td>:</td><td> <strong class="editable" id="firstname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Firstname"><?=$e_info['firstname'];?></strong></td>
+							<tr><td class="frst">Last Name </td><td>: </td><td><strong class="editable" id="lastname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Lastname"><?=$e_info['lastname'];?></strong></td>
+							<tr><td class="frst">Middle Name </td><td>: </td><td><strong class="editable" id="mid_name" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Middlename"><?=$e_info['mid_name'];?></strong></td>
+							<tr><td class="frst">Contact </td><td>: </td><td><strong class="editable" id="contact" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Contact Number"><?=$e_info['contact'];?></strong></td>
+							<tr><td class="frst">Status </td><td>: </td><td><strong><?=$e_info['civil_status'];?></strong></td>
+							<tr><td class="frst">Department </td><td>: </td><td><strong><?=$e_info['dep_name'];?></strong></td>
+							<tr><td class="frst">Position </td><td>: </td><td><strong ><?=$e_info['job_name'];?></strong></td></tr>
+							<tr><td class="frst">Salary </td><td>: </td><td><strong ><?=$e_info['b_salary']." PHP";?></strong></td></tr>
+							<tr><td class="frst">Birthdate </td><td>: </td><td><strong ><?=$e_info['bday'];?></strong></td></tr>
+							<tr><td class="frst">Age </td><td>: </td><td><strong><?=$e_info['age'];?></strong></td></tr>
+							<tr><td class="frst">Gender </td><td>: </td><td><strong>
+								<?php
+									$gen = array('M'=>'Male','F'=>'Female');
+									foreach ($gen as $key => $value) {
+										# code...
+										echo ($e_info['sex']=="$key") ? $value : null;
+									}
 
-
-	<div class="pull-left" style="width:200px;">
-		    <ul class="nav nav-list">
-		    <li class="nav-header">Navigation</li>
-		    <li class="active"><a href="#1A">Basic Information</a></li>
-		    <li><a href="#1B">User Accounts</a></li>
-		    <li><a href="#1C">Benefits Accounts</a></li>
-
-		    </ul>
-
-
-		     <div class="tab-content">
-				
-				<div class="tab-pane" id="lA">
-                  <p>I'm in Section A.</p>
+								?>
+							</strong></td></tr>
+							<tr><td class="frst">Address </td><td>: </td><td><strong class="editable" id="address" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Address"><?=$e_info['address'];?></strong></td></tr>
+							<tr><td class="frst">Religion </td><td>: </td><td><strong><?=$e_info['religion'];?></strong></td></tr>
+						</table>
                 </div>
-                <div class="tab-pane active" id="lB">
-                  <p>Howdy, I'm in Section B.</p>
+
+
+
+
+                <div class="tab-pane " id="benefits">
+
+                	<h3 class="title">Benefits Information</h3>
+                		<table class="table well well-large" style="width:300px">
+                			<tr><td>SSS Number</td><td> <?=$e_info['sss'];?></td></tr>
+                			<tr><td>Philhealth Number</td><td> <?=$e_info['philhealth'];?></td></tr>
+                			<tr><td>Pagibig Number</td><td> <?=$e_info['pagibig'];?></td></tr>
+                			<tr><td>TIN Number</td><td> <?=$e_info['tin'];?></td></tr>
+
+                		</table>
+
+                	
+										
+
+
                 </div>
-                <div class="tab-pane" id="lC">
-                  <p>What up girl, this is Section C.</p>
+                <div class="tab-pane" id="uaccounts">
+                	<h3 class="title">Employee account information</h3>
+                		<table class="table">
+                			<thead><tr><th>Username</th> <th>Password</th></tr></thead>
+                			<body><tr><td><?=$account['username'];?></td><td><?=$account['password'];?></td></tr></body>
+                		</table>
+
+                			
                 </div>
-			</div>
-	</div>
-
-
-
-	<div class="pull-right well well-small" style="width:710px">
-			    <div class="alert alert-info">
-				    <h5 style="margin:0">Note!</h5>
-				    	If you want to change the information just click the text width dashed-underline.
-				    </div>
-			<h3 class="title">Basic Information</h3>
-    <h4 class="title"><?=$e_info['firstname']." ".$e_info['mid_name']." ".$e_info['lastname'];?></h4>
-			<table class="table table-condensed">
-																					
-				<tr><td class="frst">First Name </td><td>:</td><td> <strong class="editable" id="firstname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Firstname"><?=$e_info['firstname'];?></strong></td>
-				<tr><td class="frst">Last Name </td><td>: </td><td><strong class="editable" id="lastname" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Lastname"><?=$e_info['lastname'];?></strong></td>
-				<tr><td class="frst">Middle Name </td><td>: </td><td><strong class="editable" id="mid_name" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Middlename"><?=$e_info['mid_name'];?></strong></td>
-				<tr><td class="frst">Contact </td><td>: </td><td><strong class="editable" id="contact" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Contact Number"><?=$e_info['contact'];?></strong></td>
-				<tr><td class="frst">Status </td><td>: </td><td><strong><?=$e_info['civil_status'];?></strong></td>
-				<tr><td class="frst">Department </td><td>: </td><td><strong><?=$e_info['dep_name'];?></strong></td>
-				<tr><td class="frst">Position </td><td>: </td><td><strong ><?=$e_info['job_name'];?></strong></td></tr>
-				<tr><td class="frst">Salary </td><td>: </td><td><strong ><?=$e_info['b_salary']." PHP";?></strong></td></tr>
-				<tr><td class="frst">Birthdate </td><td>: </td><td><strong ><?=$e_info['bday'];?></strong></td></tr>
-				<tr><td class="frst">Age </td><td>: </td><td><strong><?=$e_info['age'];?></strong></td></tr>
-				<tr><td class="frst">Gender </td><td>: </td><td><strong>
-					<?php
-						$gen = array('M'=>'Male','F'=>'Female');
-						foreach ($gen as $key => $value) {
-							# code...
-							echo ($e_info['sex']=="$key") ? $value : null;
-						}
-
-					?>
-				</strong></td></tr>
-				<tr><td class="frst">Address </td><td>: </td><td><strong class="editable" id="address" data-pk="<?=$e_info['id'];?>" data-type="text"  data-original-title="Enter Address"><?=$e_info['address'];?></strong></td></tr>
-				<tr><td class="frst">Religion </td><td>: </td><td><strong><?=$e_info['religion'];?></strong></td></tr>
-			</table>
-		
-	</div>
-				
-				
-							
+     </div>
+            					
 
 </div>
 
