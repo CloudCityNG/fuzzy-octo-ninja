@@ -16,17 +16,17 @@
 							<tr><td><p>Department<br />
 									
 									  <select id="selectDep" class="select btn-info">
-									  	<option>Select Department</option>
+									  	<option value="">Select Department</option>
 									  	<?php
 										foreach($gdep as $key){
-										echo "<option>".$key['dep_name']."</option>";
+										echo "<option value=".$key['id'].">".$key['dep_name']."</option>";
 										}
 										
 										?>
 										
 							
 									</select>
-
+									<input type="hidden" id="dep_id" name="dep_id" value="" />
 									</p>
 									</td>
 									<td><p>

@@ -17,7 +17,7 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 $(document).ready(function(){
   $('.select').select2();
   $('#selectDep').bind('change',function(){
-      alert(1);
+      $('#dep_id').val($(this).val());
   });
 });
 function addmore(){
