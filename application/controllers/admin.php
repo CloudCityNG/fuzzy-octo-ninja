@@ -11,7 +11,6 @@ class admin extends MVC_controller{
 	
 	}
 	public function index(){
-		$data['class'] = __CLASS__;
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['leavecnt'] = $this->cnt;
 		$data['whoAreThem'] = $this->whoAreThem;

@@ -5,7 +5,6 @@
 					<form action="<?=base_url()."employees/add";?>" method="POST" onsubmit="return validate();">
 					<div class="thebox">
 					<?=(isset($successremove)) ? $successremove : null;?>
-					<h1 class="ttle">Departments</h1>
 					<div class="g-button-group tdepcon" id="dep-c" >
 									  <a class="g-button dropdown-toggle blue department"  data-toggle="dropdown" href="#">
 											<span id="tdep" title="Select Department"><?=$current[0]['dep_name'];?></span> <span class="caret"></span>
@@ -25,6 +24,18 @@
 								
 									</div>
 									<br class="clear" />
+
+									<select id="selectDep" class="select btn-info">
+									  	<option value=""><?=$current[0]['dep_name'];?></option>
+									  	<?php
+										foreach($gdep as $key){
+										echo "<option value=".$key['id'].">".$key['dep_name']."</option>";
+										}
+										
+										?>
+										
+							
+									</select>
 					<h1 class="ttle">Positions</h1>
 					<div class="datagrid left" style="margin-top:10px;width:400px">
 					<table class="table" width="100%" cellspacing="0" id="deptbl">

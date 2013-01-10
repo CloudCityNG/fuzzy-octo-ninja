@@ -24,7 +24,7 @@
                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dept. and Positions <b class="caret"></b></a>
                           <ul class="dropdown-menu">
                             <li><a href="<?=base_url()."depandpos/";?>"><i class="icon-list-alt"></i>View Department</a></li>
-                            <li><a href="#"><i class="icon-plus-sign"></i>Add Departments</a></li>
+                            <li><a href="<?=base_url()."depandpos/add/";?>"><i class="icon-plus-sign"></i>Add Departments</a></li>
                             <li class="divider"></li>
                             <li><a href="#"><i class="icon-list-alt"></i>View Positions</a></li>
                             <li><a href="#"><i class="icon-plus-sign"></i>Add Positions</a></li>

@@ -13,9 +13,11 @@ class MVC_controller{
 		self::$instance =& $this;
 		$this->load = new Loader;
         $this->session = new session;
+
 	}
 
 	public static function &getInstance(){
 		return self::$instance;
 	}
+
 }

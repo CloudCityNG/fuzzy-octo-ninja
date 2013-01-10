@@ -5,7 +5,6 @@
 					
 				<?=(isset($errordel)) ? $errordel : null;?>
 				<?=(isset($addpstsuccess)) ? $addpstsuccess : null;?>
-					<h4>Departments</h4>
 			
 			<div class="datagrid">
 
@@ -42,25 +41,6 @@
 			</div>
 			
 		
-			
-			<!--add new department//-->
-			<div class="well">
-			<h4 >Add New Department</h4>
-				<form action="<?=base_url()."depandpos";?>" name="add_dep" method="post">
-					<?=(isset($rs)) ? $rs : null;?>
-					<?=(isset($error)) ? $error : null;?>
-			<p>Department Name:<br />
-			<input type="text" name="dep_n" value="" class="inp-search">
-			</p>
-			<p>Add Position<br />
-			<input type="text" value="" name="pos[]" class="inp-search"> <a href="#" onClick="addmore()">[+]Add more</a>
-			</p>
-			<span id="addmorespan">
-			</span>
-			<p><input type="submit" name="adddep" value="Save" class="g-button blue small"/></p>
-			</form>
 		
-			</div>
-			<br class="clear" />
-
+	
 </div>

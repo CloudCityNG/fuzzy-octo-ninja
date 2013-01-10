@@ -3,6 +3,46 @@
 	{
 		"selected_items":
 		[
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"emp",
+				"emp_id"
+			],
+			[
+				"who",
+				"whoAreThem"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"arra",
+				"array"
+			],
+			[
+				"exec",
+				"execute"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"al",
+				"alert-success"
+			],
+			[
+				"print",
+				"print_r"
+			]
 		]
 	},
 	"buffers":
@@ -32,10 +72,29 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/admin/leave_.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/login_.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/admin/benefits_.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/public/css/style.css",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/admin/settings_.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/reports.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/jobanddep.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/employees.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/dailytimerecord.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/compensation.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/config/autoload.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/account.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/public/css/google-bootstrap.css",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/admin/admin_.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/models/checkLeave.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/admin.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/controllers/leave.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/common/header__.php",
+		"/C/xampp/htdocs/fuzzy-octo-ninja/application/views/admin/leave_view_spec.php"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 53.0
 	},
 	"find_in_files":
 	{
@@ -49,6 +108,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"a:hover",
+			"a.hover"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -77,7 +138,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
