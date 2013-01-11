@@ -32,27 +32,26 @@
 						$('#dp_error').hide()
 						$('#selectDep').bind('click',function(){
 								var id = $(this).val();
-
+	
 								if(id=="" || id==null){
 										$('#dp_error').show();
 									}else{
 
 										$.post('<?=base_url()."employees/add";?>',{dep:true,id:id},function(data){
 											$('#dept').val(id);
-										$('#tjob').html(data);
+												$('#tjob').html(data);
 									
 										});
 									}
-								
-							//$('#tjo').html('Select Job position');
-							//$('#tjob').html(data);
+
 							});
 
 						$('#tjob').bind('click',function(){
 							var id = $(this).val();
 
 							$.post('<?=base_url()."employees/add";?>',{pos:true,id:id},function(data){
-										$('#sal').val(data);
+										
+									$('#sal').val(data);
 									
 							});
 						})
@@ -61,8 +60,11 @@
 				});
 			</script>
 			<div class="alert alert-error" id="dp_error"><p>Please select Department</p></div>
-			<form action="<?=base_url()."employees/basic_information";?>" method="POST" >
-
+			<form action="<?=base_url()."employees/basic_information";?>" method="POST" onSubmit="return validate()">
+				    <div class="alert alert-error" id="depos">
+ 				    	<h4>Error</h4>
+				    	<p>Please select Department or Position</p>
+				    </div>
 				<table class="table table-large">
 					<tr><td>Department </td><td>
 									

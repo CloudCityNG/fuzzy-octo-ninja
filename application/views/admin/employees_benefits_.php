@@ -19,13 +19,13 @@
 			<ul id="multi-step">
 
 
-				<li class="<?=($formenu=='select-department') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='select-department') ? 'badge-success' : null;?>">1</span><br /> <strong>Select Department</strong></a></li>
-				<li class="<?=($formenu=='basic-information') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='basic-information') ? 'badge-success' : null;?>">2</span><br /> <strong>Basic Information</strong></a></li>
-				<li class="<?=($formenu=='benefits-accounts') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='benefits-accounts') ? 'badge-success' : null;?>">3</span><br /> <strong>Benefits Accounts</strong></a></li>
+				<li class="active"><a href="#"><span class="badge badge-success">1</span><br /> <strong>Select Department</strong></a></li>
+				<li class="active"><a href="#"><span class="badge badge-success">2</span><br /> <strong>Basic Information</strong></a></li>
+				<li class="active"><a href="#"><span class="badge badge-success">3</span><br /> <strong>Benefits Accounts</strong></a></li>
 				<li class="<?=($formenu=='user-accounts') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='user-accounts') ? 'badge-success' : null;?>">4</span><br /> <strong>User Accounts</strong></a></li>
 			</ul>
 <ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
-	<li class="active"><h4>Select Department and Position</h4></li>
+	<li class="active"><h4>Benefits</h4></li>
 </ul>
 			<script type="text/javascript">
 				$(document).ready(function(){
@@ -61,43 +61,15 @@
 				});
 			</script>
 			<div class="alert alert-error" id="dp_error"><p>Please select Department</p></div>
-			<form action="<?=base_url()."employees/add/basic-information";?>" method="POST" >
-
-				<table class="table table-large">
-					<tr><td>Department </td><td>
-									
-									  <select id="selectDep" class="select btn-info" name="department" style="width:230px">
-									  	<option value="">Select Department</option>
-									  	<?php
-										foreach($gdep as $key){
-										echo "<option value=".$key['id'].">".$key['dep_name']."</option>";
-										}
-										
-										?>
-										
+			<form action="<?=base_url()."employees/user_account";?>" method="POST" onSubmit="return validate_benefits();">
+				<table class="table">
+					<tr><td>SSS Number</td> <td><input type="text"  value="" autocomplete="off" name="sss" id="sss"></td></tr>
+					<tr><td>Philhealth Number</td> <td><input type="text" class="inp-search" value="" autocomplete="off" name="philhealth" id="philhealth"></td></tr>
+					<tr><td>Pagibig Number</td> <td><input type="text" class="inp-search" value="" autocomplete="off" name="pagibig" id="pagibig"></td></tr>
+					<tr><td>TIN Number</td> <td><input type="text" class="inp-search" value="" autocomplete="off" name="tin" id="tin"></td></tr>
+				</table>
 				
-									</select>
-
-									</td>
-									
-
-								</tr>
-
-								<tr>
-									<td>
-									Job Position</td><td>
-									<select class="select btn-info" id="tjob" name="position" style="width:230px">
-									  	<option>Select Position</option>
 										
-									
-							
-									</select>
-
-									</p></tr>
-
-									<tr><td>Salary </td><td><input type="text" rel="tooltip" data-original-title="Salary is modifyable" name="sal" id="sal" /></td></tr>
-										
-				</table>	
 				<button type="submit" class="btn btn-success" name="select-department">Next</button>
 			</form>
 

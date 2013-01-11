@@ -16,6 +16,7 @@ load_sfiles('public/css/','.css',array('bootstrap.min','bootstrap-responsive','g
 /*Your script here*/
 $(document).ready(function(){
 $('#bday').datepicker({changeYear:true,yearRange:'-60',changeMonth:true,dateFormat:'dd-MM-yy',});
+      $('#depos').hide();
   $("[rel=tooltip]").tooltip();  
   $('.select').select2();
   $('#selectDep').bind('change',function(){
@@ -39,6 +40,87 @@ var yr = $('#bday').val();
 yr = yr.split('-');
 $('#age').val(2012-yr[2]);
     
+}
+
+function validate(){
+  var dep = $('#selectDep').val();
+
+  if(dep==""){
+      $('#depos').toggle();
+    return false;
+  }
+}
+
+function validate_basic(){
+  var lname = $('#lname').val();
+  var fname = $('#fname').val();
+  var mname = $('#mname').val();
+  var bday = $('#bday').val();
+  var age = $('#age').val();
+  var addr = $('#address').val();
+  var relg = $('#relg').val();
+  var gender = $('#gender').val();
+  var cnumber = $('#cnumber').val();
+  var status = $('#status').val();
+  
+  
+
+if(lname==""){
+  $('#lname').css({'box-shadow':'0 0 3px red'}).focus();
+  return false
+}else if(fname==""){
+  $('#fname').css({'box-shadow':'0 0 3px red'}).focus();
+  return false
+}else if(mname==""){
+$('#mname').css({'box-shadow':'0 0 3px red'}).focus();
+  return false
+}else if(bday==""){
+  $('#bday').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+
+}else if(age==""){
+  $('#age').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(gender==""){
+  $('#gender').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(addr==""){
+  $('#address').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(relg==""){
+  $('#relg').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(gender==""){
+  $('#gender').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(status==""){
+  $('#cnumber').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if (cnumber==""){
+   $('#status').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}
+}
+
+function validate_benefits(){
+  var sss = $('#sss').val();
+  var phealth = $('#philhealth').val();
+  var pagibig = $('#pagibig').val();
+  var tin = $('#tin').val();
+  
+if(sss==""){
+  $('#sss').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(phealth==""){
+  $('#philhealth').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(pagibig==""){
+  $('#pagibig').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}else if(tin==""){
+  $('#tin').css({'box-shadow':'0 0 3px red'}).focus();
+  return false;
+}
 }
 </script>
 </head>

@@ -61,7 +61,7 @@
 				});
 			</script>
 			<div class="alert alert-error" id="dp_error"><p>Please select Department</p></div>
-			<form action="<?=base_url()."employees/benefits_accounts";?>" method="POST" >
+			<form action="<?=base_url()."employees/benefits_accounts";?>" method="POST" onSubmit="return validate_basic()">
 						<table class="">
 											<tr>
 												<td>Lastname <br /><div class="g-button-group"><input type="text" onkeyup="genUname(this.value)" autocomplete="off" class="inp-search" id="lname" name="lname"></div></td>
@@ -76,7 +76,7 @@
 												<td>Age <br /><input type="text" autocomplete="off" value="" style="width:30px" maxlength="2" name="age" id="age"></td>
 												<td>
 													Gender<br />
-													<select name="gender" class="dropdown">
+													<select name="gender" id="gender" class="dropdown">
 																				<option selected="selected" value="">-</option>
 																				<option value="Male">Male</option>
 																				<option value="Female">Female</option>
@@ -95,7 +95,7 @@
 												
 												</select></td>
 											<td>Civil Status<br />
-													<select name="cv_stat" class="dropdown" id="gender">
+													<select name="cv_stat" class="dropdown" id="status">
 																	<option selected="selected" value="">Select status</option>
 																	<option value="Single">Single</option>
 																	<option value="Married">Married</option>
@@ -108,7 +108,7 @@
 											</tr>
 										</table>
 				 <ul class="clear custom-nav nav nav-tabs nav-tabs-google"></ul>
-				<a href="#" class="btn btn-success" >Back</a> <button type="submit" class="btn btn-success" name="select-department">Next</button>
+				<!--<a href="#" class="btn btn-success" >Back</a> --><button type="submit" class="btn btn-success" name="select-department">Next</button>
 			</form>
 
 

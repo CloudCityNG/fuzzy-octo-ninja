@@ -94,10 +94,9 @@ class employees extends MVC_controller{
 		}
 
 		if($_POST['pos']){
-
 			$id = $_POST['id'];
-			$q = $this->crud->read('SELECT b_salary FROM jobs WHERE id=:id',array('id'=>$id));
-		$q[0]['b_salary'];
+		$q = $this->crud->read('SELECT b_salary FROM jobs WHERE id=:id',array('id'=>$id));
+		echo $q[0]['b_salary'];
 		return false;
 		
 		}
@@ -120,16 +119,22 @@ class employees extends MVC_controller{
 	}
 
 	public function basic_information(){
-		$data['formenu'] =  __FUNCTION__;
+		
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_basic_',$data);
 		$this->load->render('common/footer_',$data);
 	}
 
 	public function benefits_accounts(){
-		$data['formenu'] =  __FUNCTION__;
+		
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_benefits_',$data);
+		$this->load->render('common/footer_',$data);
+	}
+
+	public function user_account(){
+	$this->load->render('common/header__',$data);
+		$this->load->render('admin/employees_user_',$data);
 		$this->load->render('common/footer_',$data);
 	}
 
