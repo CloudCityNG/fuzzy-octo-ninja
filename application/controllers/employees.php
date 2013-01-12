@@ -3,6 +3,7 @@ class employees extends MVC_controller{
 	private $s = false;
 	public $whoAreThem;
 	public $current = 1;
+	public $basic = false;
 	public function __construct(){
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
@@ -101,16 +102,6 @@ class employees extends MVC_controller{
 		
 		}
 
-		if(isset($_POST['select-department'])){
-
-				$id =  $_POST['department'];
-				$position = $_POST['position'];
-				$salary = $_POST['sal'];
-
-				$this->session->_set(array('dep_id'=>$id,'pos_id'=>$position,'salary'=>$salary));
-		}
-		
-
 		$data['formenu'] =  (!isset($id[0])) ? $this->session->_get('salary') : $id[0];
 		
 		$this->load->render('common/header__',$data);
@@ -119,20 +110,44 @@ class employees extends MVC_controller{
 	}
 
 	public function basic_information(){
+		if(isset($_POST['select-department'])){
+
+				$id =  $_POST['department'];
+				$position = $_POST['position'];
+				$salary = $_POST['sal'];
+				$this->session->_set(array('dep_id'=>$id,'pos_id'=>$position,'salary'=>$salary));
 		
+				$this->basic = true;
+		}
+		/*if($this->basic==false){
+			redirect('employees');
+		}*/
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_basic_',$data);
 		$this->load->render('common/footer_',$data);
 	}
 
 	public function benefits_accounts(){
-		
+		if(isset($_POST['basic-information'])){
+			/*$this->session->_set(array('lastname' =>  r_string($_POST['lname']),
+			'firstname' =>  r_string($_POST['fname']),
+			'mid_name' =>  r_string($_POST['mname']),
+			'bday' =>  r_string($_POST['bday']),
+			'age' =>  r_string($_POST['age']),
+			'sex' =>  r_string($_POST['gender']),
+			'civil_status' =>  r_string($_POST['cv_stat']),
+			'address' => r_string($_POST['address']),
+			'religion' =>  r_string($_POST['religion']),
+			'contact' =>  r_string($_POST['cnumber'])));*/
+			$this->session->_set(array('religion'=>r_string($_POST['religion'])));
+		}
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_benefits_',$data);
 		$this->load->render('common/footer_',$data);
 	}
 
 	public function user_account(){
+	echo $this->session->_get('religion');
 	$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_user_',$data);
 		$this->load->render('common/footer_',$data);

@@ -13,3 +13,9 @@ function isadmin(){
 	$mvc =& getInstance();
 	return ($mvc->session->_get('usertype')==0) ? true : false;
 }
+
+function rel(){
+	$mvc=& getInstance();
+
+	return $mvc->session->_get('religion');
+}

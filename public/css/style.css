@@ -38,3 +38,6 @@ table tr td.frst{width: 150px}
 #multi-step li{list-style:none;display: inline-block;text-align: center;margin: 0 5px 0 5px;}
 #multi-step li a{text-decoration: none;color: gray}
 #multi-step li.active a{text-decoration: none;color: rgb(0,133,201);}
+
+#custom-dropdown{min-width: 270px;padding:10px;}
+.custom-border{border-top:1px solid rgb(185,185,185);;margin: 9px 0  5px 0;min-height: 9px}

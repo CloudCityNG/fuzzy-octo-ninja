@@ -108,7 +108,7 @@
 											</tr>
 										</table>
 				 <ul class="clear custom-nav nav nav-tabs nav-tabs-google"></ul>
-				<!--<a href="#" class="btn btn-success" >Back</a> --><button type="submit" class="btn btn-success" name="select-department">Next</button>
+				<!--<a href="#" class="btn btn-success" >Back</a> --><button type="submit" class="btn btn-success" name="basic-information">Next</button>
 			</form>
 
 

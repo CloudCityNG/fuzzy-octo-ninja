@@ -189,16 +189,33 @@ if(sss==""){
     </ul>
          <ul class="nav pull-right">
                     <li id="fat-menu" class="dropdown">
-                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> <?=$info['lastname'].", ".$info['firstname'];?><b class="caret"></b></a>
-                      <ul class="dropdown-menu" role="menu" >
+                      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i></a>
+                        <div class="dropdown-menu" role="menu" id="custom-dropdown">
+                              <?php echo loadImage('public/img/avatar.png','left','','width:40px;height:40px;margin:3px;margin-top:0');?>
+                              <h4 style="margin:0;margin-top:3px"><?=$info['lastname'].", ".$info['firstname'];?></h4>
+                              <a href="<?=base_url()."account/settings";?>" >Account Settings</a> |
+                              <a href="<?=base_url()."account/benefits";?>" >Benefits Accounts</a>
+                           
+                            <div class="custom-border"></div>
+                            
+                              <a href="<?=base_url()."main/logout";?>" class="btn btn-primary pull-right" style="clear:right">Logout</a>
+                        </div>
+                    </li>
+                  </ul>
+    </div>
+    </div>
+</div>
+
+
+<!--
+<ul class="dropdown-menu" role="menu" >
+                        <li><a href="#welcome" ><i class="icon-user "></i>  <?=$info['lastname'].", ".$info['firstname'];?></a></li>
+                         <li class="divider"></li>
                         <li><a href="<?=base_url()."account/settings";?>" ><i class="icon-info-sign "></i> Account Settings</a></li>
                         <li><a href="<?=base_url()."account/benefits";?>" ><i class="icon-star "></i> Benefits Accounts</a></li>
                          <li class="divider"></li>
                         <li><a href="<?=base_url()."main/logout";?>" ><i class="icon-arrow-right"></i> Logout</a></li>
 
                       </ul>
-                    </li>
-                  </ul>
-    </div>
-    </div>
-</div>
+
+-->
