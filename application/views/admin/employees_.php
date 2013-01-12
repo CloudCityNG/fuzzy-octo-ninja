@@ -1,12 +1,15 @@
     
 
 <div class="container">
-					<h1 class="title pull-left"><span>Employees</span></h1>
-						<form method="POST" action="<?=base_url()."employees";?>" class="form-search pull-left" style="margin-top:9px;margin-left:30px">
+<ul class="custom-nav nav nav-tabs nav-tabs-google pull-left" id="btabs">
+	<li class="active"><a href="#home" data-toggle="tab">Employees</a></li>
+</ul>
+					
+						<form method="POST" action="<?=base_url()."employees";?>" class="form-search pull-right" style="margin-bottom:10px">
 					    <input type="text" placeholder="Search Employees Name"  class="input-large search-query" name="query">
 					    <button type="submit" name="searchEmp" class="btn btn-success">Search</button>
 					    </form>
-					    <br class="clear"  />
+					    <br class="clear" />
 							<?=isset($success) ? "<p class='add_success'>".$success."</p>" : null;?>
 					<div class="datagrid">
 					

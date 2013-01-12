@@ -19,13 +19,13 @@
 			<ul id="multi-step">
 
 
-				<li class="<?=($formenu=='select-department') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='select-department') ? 'badge-success' : null;?>">1</span><br /> <strong>Select Department</strong></a></li>
-				<li class="<?=($formenu=='basic-information') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='basic-information') ? 'badge-success' : null;?>">2</span><br /> <strong>Basic Information</strong></a></li>
-				<li class="<?=($formenu=='benefits-accounts') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='benefits-accounts') ? 'badge-success' : null;?>">3</span><br /> <strong>Benefits Accounts</strong></a></li>
-				<li class="<?=($formenu=='user-accounts') ? 'active' : null;?>"><a href="#"><span class="badge <?=($formenu=='user-accounts') ? 'badge-success' : null;?>">4</span><br /> <strong>User Accounts</strong></a></li>
+				<li class="active"><a href="#"><span class="badge badge-success">1</span><br /> <strong>Select Department</strong></a></li>
+				<li class="active"><a href="#"><span class="badge badge-success">2</span><br /> <strong>Basic Information</strong></a></li>
+				<li class=""><a href="#"><span class="badge <?=($formenu=='benefits-accounts') ? 'badge-success' : null;?>">3</span><br /> <strong>Benefits Accounts</strong></a></li>
+				<li class=""><a href="#"><span class="badge <?=($formenu=='user-accounts') ? 'badge-success' : null;?>">4</span><br /> <strong>User Accounts</strong></a></li>
 			</ul>
 <ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
-	<li class="active"><h4>Select Department and Position</h4></li>
+	<li class="active"><h4>Basic Information</h4></li>
 </ul>
 			<script type="text/javascript">
 				$(document).ready(function(){
@@ -61,45 +61,54 @@
 				});
 			</script>
 			<div class="alert alert-error" id="dp_error"><p>Please select Department</p></div>
-			<form action="<?=base_url()."employees/basic_information";?>" method="POST" >
-
-				<table class="table table-large">
-					<tr><td>Department </td><td>
-									
-									  <select id="selectDep" class="select btn-info" name="department" style="width:230px">
-									  	<option value="">Select Department</option>
-									  	<?php
-										foreach($gdep as $key){
-										echo "<option value=".$key['id'].">".$key['dep_name']."</option>";
-										}
+			<form action="<?=base_url()."employees/benefits_accounts";?>" method="POST" >
+						<table class="">
+											<tr>
+												<td>Lastname <br /><div class="g-button-group"><input type="text" onkeyup="genUname(this.value)" autocomplete="off" class="inp-search" id="lname" name="lname"></div></td>
+												<td>Firstname<br /><input type="text" autocomplete="off" class="inp-search"  id ="fname" name="fname"></td>
+												<td>Middle Name<br /><input type="text" autocomplete="off" class="inp-search" id="mname" name="mname"></td>
+											</tr>
+											<tr>
+												<td> Birth date<br />
+													<input type="text" name="bday" id="bday" class="inp-search " onChange="comp()"/>
+												</td>
+											
+												<td>Age <br /><input type="text" autocomplete="off" value="" style="width:30px" maxlength="2" name="age" id="age"></td>
+												<td>
+													Gender<br />
+													<select name="gender" class="dropdown">
+																				<option selected="selected" value="">-</option>
+																				<option value="Male">Male</option>
+																				<option value="Female">Female</option>
+													</select>
+												</td>
+												
+											</tr>
+											<tr><td colspan="3">Address <br /><input type="text" id="address" name="address" style="width:100%"/></td></tr>
+											<tr >
+												<td>Religion <br /><select id="relg" name="religion" class="dropdown">
+													<option value="">Select Religion</option>
+													<option value="Roman Catholic">Roman Catholic</option>
+													<option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
+													<option value="Christian">Christian</option>
+													<option value="other">Other</option>
+												
+												</select></td>
+											<td>Civil Status<br />
+													<select name="cv_stat" class="dropdown" id="gender">
+																	<option selected="selected" value="">Select status</option>
+																	<option value="Single">Single</option>
+																	<option value="Married">Married</option>
+																	<option value="Widowed">Widowed</option>
+																	</select><br>
 										
-										?>
-										
-				
-									</select>
-
-									</td>
-									
-
-								</tr>
-
-								<tr>
-									<td>
-									Job Position</td><td>
-									<select class="select btn-info" id="tjob" name="position" style="width:230px">
-									  	<option>Select Position</option>
-										
-									
-							
-									</select>
-
-									</p></tr>
-
-									<tr><td>Salary </td><td><input type="text" rel="tooltip" data-original-title="Salary is modifyable" name="sal" id="sal" /></td></tr>
-										
-				</table>	
+													
+												</td>
+												<td>Contact Number <br /><input type="text" class="inp-search" value="" autocomplete="off" name="cnumber" id="cnumber"></td>
+											</tr>
+										</table>
 				 <ul class="clear custom-nav nav nav-tabs nav-tabs-google"></ul>
-				<button type="submit" class="btn btn-success" name="select-department">Next</button>
+				<a href="#" class="btn btn-success" >Back</a> <button type="submit" class="btn btn-success" name="select-department">Next</button>
 			</form>
 
 

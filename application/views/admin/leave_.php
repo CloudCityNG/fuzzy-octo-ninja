@@ -1,6 +1,9 @@
-<div class="container" id="admin">
-
-					<h1 class="title"><span>Leave request</span></h1>		
+<div class="container">
+  
+					 <ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
+							    <li class="active"><a href="#home" data-toggle="tab">Leave Request</a></li>
+								</ul>
+		
 	
 <div class="datagrid">
 	<table class="table table-striped">
@@ -23,6 +26,5 @@
 								</table>
 
 </div>
-	
 	
 </div>

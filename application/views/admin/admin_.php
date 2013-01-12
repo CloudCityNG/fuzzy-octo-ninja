@@ -1,7 +1,7 @@
-<div class="container min-height">
+<div class="container">
 		<div id="small-left">
 
-			<?php echo loadImage('public/img/avatar.png','left','','width:40px;height:40px;margin:3px');?>
+			<?php echo loadImage('public/img/avatar.png','left','','width:40px;height:40px;margin:3px;margin-top:0');?>
 			<h4 style="margin:0;margin-top:3px"><?=$info['lastname'].", ".$info['firstname'];?></h4>
 			<a href="<?=base_url()."account/settings";?>" >Account Settings</a> |
 			<a href="<?=base_url()."account/benefits";?>" >Benefits Accounts</a> |

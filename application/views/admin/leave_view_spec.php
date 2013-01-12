@@ -1,17 +1,25 @@
 <div class="container">
-			<h1 class="title"><span>Leave request</span></h1>	
-			<div class="well">
+
+<ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
+	<li class="active"><a href="#home" data-toggle="tab">Leave Request</a></li>
+</ul>
+<ul class="breadcrumb custom-nav">
+    <li><a href="<?=base_url()."admin/";?>">Dashboard</a> <span class="divider">/</span></li>
+    <li><a href="<?=base_url()."leave/";?>">Leave Request</a> <span class="divider">/</span></li>
+    <li class="active"><?=$nme;?></li>
+ </ul>
+				 <ul class="custom-nav nav nav-tabs nav-tabs-google"></ul>
 				<?=isset($success) ? "<div class='alert alert-success'>".$success."</div>" :null ;?>
-
-				 <ul class="nav nav-tabs nav-tabs-google" id="btabs">
-							    <li class="active"><a href="#home" data-toggle="tab">Request</a></li>
-							    <li><a href="#profile" data-toggle="tab">Send Message</a></li>
-							</ul>
-
 				<form method="POST">
-				<p>Name : <strong><?=$nme;?>asfsf</strong></p>
-				<p>Leave to apply: <span class="label label-important"><?=$leave;?></span></p>
-				<p>From : <span class="label label-important"><?=$from;?></span> <br />To : <span class="label label-important"><?=$to;?></span></p>
+
+
+
+				<h3>[<?=$leave;?> Leave Request] <strong><?=$nme;?>asfsf</strong></h3>
+					
+				<table class="table table-condensed " style="width:300px">
+					<tr><td style="text-align:right;width:30px">From </td> <td>:</td><td><span class="label label-important"><?=$from;?></span></td></tr>
+					<tr><td style="text-align:right;width:30px">To </td> <td>:</td><td><span class="label label-important"><?=$to;?></span></td></tr>
+				</table>
 				<h5 class="ttle">Reason</h5>
 				<div class="well" style="background:#fff">
 				<?=$reason;?>
@@ -22,4 +30,4 @@
 				?>
 				<input <?=($lrstatus==1) ? "disabled" : null;?> type="submit" name="accpt" class="btn btn-success btn-large" value="Accept" />
 				</form>
-			</div>
+</div>

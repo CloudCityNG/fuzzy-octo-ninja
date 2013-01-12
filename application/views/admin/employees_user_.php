@@ -61,7 +61,7 @@
 				});
 			</script>
 			<div class="alert alert-error" id="dp_error"><p>Please select Department</p></div>
-			<form action="<?=base_url()."employees/basic_information";?>" method="POST" >
+			<form action="<?=base_url()."employees/add/basic-information";?>" method="POST" >
 
 				<table class="table table-large">
 					<tr><td>Department </td><td>
@@ -98,7 +98,6 @@
 									<tr><td>Salary </td><td><input type="text" rel="tooltip" data-original-title="Salary is modifyable" name="sal" id="sal" /></td></tr>
 										
 				</table>	
-				 <ul class="clear custom-nav nav nav-tabs nav-tabs-google"></ul>
 				<button type="submit" class="btn btn-success" name="select-department">Next</button>
 			</form>
 

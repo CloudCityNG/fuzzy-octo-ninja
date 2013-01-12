@@ -2,6 +2,7 @@
 class employees extends MVC_controller{
 	private $s = false;
 	public $whoAreThem;
+	public $current = 1;
 	public function __construct(){
 		parent::__construct();
 		if(islogin()==true){if(isadmin()!=true){redirect('users');}}else{redirect('main');}
@@ -39,7 +40,7 @@ class employees extends MVC_controller{
 		$this->load->render('common/footer_',$data);
 	}
 	
-	public function add(){
+	public function add($id = false){
 		$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 		$data['leavecnt'] = $this->cnt;
 		$data['whoAreThem'] = $this->whoAreThem;
@@ -81,21 +82,59 @@ class employees extends MVC_controller{
 				$data['success'] = "Employee was successfully added.";
 		
 		}
-			if($_POST['dep']){
-			$a = explode('_',$_POST['id']);
-			$id = $a[1];
+		if($_POST['dep']){
+			$id=$_POST['id'];
 			$q = $this->crud->read('SELECT id,job_name,b_salary FROM jobs WHERE dep_id=:id',array('id'=>$id));
+			echo "<option value=''>Select Position</option>";
 			foreach($q as $key){
-				echo "<li><a href='#' class='slectjob' onClick=\"slectjob('".$key['id']."','".$key['b_salary']."','".$key['job_name']."')\" id='dp_".$key['id']."' title='".$key['job_name']."'>".$key['job_name']."</a></li>";
+				echo "<option value=".$key['id']."><a href='#' class='slectjob' onClick=\"slectjob('".$key['id']."','".$key['b_salary']."','".$key['job_name']."')\" id='dp_".$key['id']."' title='".$key['job_name']."'>".$key['job_name']."</a></option>";
 				
 				}
 			return false;
 		}
 
+		if($_POST['pos']){
+
+			$id = $_POST['id'];
+			$q = $this->crud->read('SELECT b_salary FROM jobs WHERE id=:id',array('id'=>$id));
+		$q[0]['b_salary'];
+		return false;
+		
+		}
+
+		if(isset($_POST['select-department'])){
+
+				$id =  $_POST['department'];
+				$position = $_POST['position'];
+				$salary = $_POST['sal'];
+
+				$this->session->_set(array('dep_id'=>$id,'pos_id'=>$position,'salary'=>$salary));
+		}
+		
+
+		$data['formenu'] =  (!isset($id[0])) ? $this->session->_get('salary') : $id[0];
+		
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_add_',$data);
 		$this->load->render('common/footer_',$data);
 	}
+
+	public function basic_information(){
+		$data['formenu'] =  __FUNCTION__;
+		$this->load->render('common/header__',$data);
+		$this->load->render('admin/employees_basic_',$data);
+		$this->load->render('common/footer_',$data);
+	}
+
+	public function benefits_accounts(){
+		$data['formenu'] =  __FUNCTION__;
+		$this->load->render('common/header__',$data);
+		$this->load->render('admin/employees_benefits_',$data);
+		$this->load->render('common/footer_',$data);
+	}
+
+
+
 
 	public function search(){
 $data['info'] = $this->user->who('employees',$this->session->_get('uid'));
@@ -192,3 +231,16 @@ $data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 
     }
 }
+
+/*
+
+}elseif ($this->current==2) {
+		$this->load->render('admin/employees_basic_',$data);
+			# code...
+		}elseif ($this->current==3) {
+			# code...
+		$this->load->render('admin/employees_benefits_',$data);
+		}elseif ($this->current==4) {
+		$this->load->render('admin/employees_user_',$data);
+		}
+*/
