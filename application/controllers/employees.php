@@ -169,11 +169,41 @@ class employees extends MVC_controller{
 			$b = $this->crud->read("SELECT job_name FROM jobs WHERE id=:id",array(':id'=>$this->session->_get('pos_id')));
 			$data['department'] = $a[0]['dep_name'];
 			$data['position'] = $b[0]['job_name'];
-			$data['username']=  r_string($_POST['regusername']);
-			$data['password'] =  r_string($_POST['regpassword']);
+			$data['username']=  $username = r_string($_POST['regusername']);
+			$data['password'] = $password =  r_string($_POST['regpassword']);
+			
+			$reg = array(
+			'dep_id' => $this->session->_get('dep_id'),
+			'position' => $this->session->_get('pos_id'),
+			'salary' => $this->session->_get('salary'),
+			'lastname' => $this->session->_get('lastname'),
+			'firstname' => $this->session->_get('firstname'),
+			'mid_name' =>  $this->session->_get('mid_name'),
+			'bday' => $this->session->_get('bday'),
+			'age' => $this->session->_get('age'),
+			'sex' => $this->session->_get('sex'),
+			'civil_status' =>  $this->session->_get('civil_status'),
+			'address' => $this->session->_get('address'),
+			'religion' => $this->session->_get('religion'),
+			'contact' =>  $this->session->_get('contact'),
+			'sss' =>  $this->session->_get('sss'),
+			'philhealth' => $this->session->_get('philhealth'),
+			'pagibig' =>  $this->session->_get('pagibig'),
+			'tin' =>  $this->session->_get('tin'),
+			'def_pass' =>  $this->session->_get('dep_id'),
+			'hiredate'=>date('Y-m-d'));
+
+			$this->crud->create('employees',$reg);
+			$lastid = $this->db->lastInsertId();
+			$account = array('uid'=>$lastid,'username'=>r_string($username),'password'=>sha1(r_string($password)),'usertype'=>1);
+			$this->crud->create('users',$account);
+				$data['success'] = "Employee was successfully added.";
+		
+			}
+
 			$data['success'] = "Employee was successfully added.";
 			//print_r($a);
-			}
+			
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_completed_',$data);
 		$this->load->render('common/footer_',$data);
