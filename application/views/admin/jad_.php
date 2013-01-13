@@ -1,12 +1,12 @@
 <div class="container" >
-
-	
-					<h1 class="title">Departments and Positions</h1>
+<ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
+	<li class="active"><a href="#home" data-toggle="tab">Departments and Positions</a></li>
+</ul>
 					
 				<?=(isset($errordel)) ? $errordel : null;?>
 				<?=(isset($addpstsuccess)) ? $addpstsuccess : null;?>
 			
-			<div class="datagrid">
+			<div class="datagrid pull-left dep">
 
 				<table class="table table-condensed">
 					<thead>
@@ -39,6 +39,25 @@
 					</tbody>
 				</table>
 			</div>
+
+			<div class="pull-left well">
+				<h3 class="title">Add New Department and Positions</h3>
+				<form action="<?=base_url()."depandpos/";?>" name="add_dep" method="post">
+					<?=(isset($rs)) ? $rs : null;?>
+					<?=(isset($error)) ? $error : null;?>
+			<p>Department Name:<br />
+			<input type="text" name="dep_n" value="" class="inp-search">
+			</p>
+			<p>Add Position<br />
+			<input type="text" value="" name="pos[]" class="inp-search"> <a href="#more" onClick="addmore()">[+]Add more</a>
+			</p>
+			<span id="addmorespan">
+			</span>
+			<p><input type="submit" name="adddep" value="Save" class="btn btn-success "/></p>
+			</form>
+		
+			</div>
+			<br class="clear" />
 			
 		
 		

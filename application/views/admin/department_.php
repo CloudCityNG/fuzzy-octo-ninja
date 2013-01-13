@@ -1,44 +1,34 @@
 
 <div class="container" >
 
-					<h1 class="title">Departments and Positions</h1>
-					<form action="<?=base_url()."employees/add";?>" method="POST" onsubmit="return validate();">
-					<div class="thebox">
+				<ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
+	<li class="active"><a href="#home" data-toggle="tab">Departments and Positions</a></li>
+</ul>
+		
 					<?=(isset($successremove)) ? $successremove : null;?>
-					<div class="g-button-group tdepcon" id="dep-c" >
-									  <a class="g-button dropdown-toggle blue department"  data-toggle="dropdown" href="#">
-											<span id="tdep" title="Select Department"><?=$current[0]['dep_name'];?></span> <span class="caret"></span>
-						
-									  </a>
-									  <ul class="dropdown-menu">
-										<?php
-							
-										
-										foreach($gdep as $key){
-										echo "<li><a href='".base_url()."depandpos/department/view/".$key['id']."' class='slectdep' id='dp_".$key['id']."' title='".$key['dep_name']."'>".$key['dep_name']."</a></li>";
-										}
-										
-										
-										?>
-									  </ul>
-								
-									</div>
-									<br class="clear" />
 
-									<select id="selectDep" class="select btn-info">
-									  	<option value=""><?=$current[0]['dep_name'];?></option>
-									  	<?php
+					<ul class="nav nav-list pull-left" style="width:130px">
+			 	   			<li class="nav-header">Departments</li>
+			      
+			                <?php
+										
 										foreach($gdep as $key){
-										echo "<option value=".$key['id'].">".$key['dep_name']."</option>";
+											$id = $key['id'];
+											$active = ($formenu==$id) ? 'active' : null;
+			              				 echo "<li class=\"".$active."\"><a href=\"".base_url()."depandpos/department/view/".$key['id']."\">".$key['dep_name']."</a></li>\n";
+									//	echo "<li><a href='".base_url()."depandpos/department/view/".$key['id']."' class='slectdep' id='dp_".$key['id']."' title='".$key['dep_name']."'>".$key['dep_name']."</a></li>";
 										}
 										
-										?>
 										
-							
-									</select>
-					<h1 class="ttle">Positions</h1>
+						?>
+             		 </ul>
+
+             		 <div class="pull-left" style="width:700px">
+						<ul class="custom-nav nav nav-tabs nav-tabs-google" id="btabs">
+							<li class="active"><a href="#home" data-toggle="tab">Positions</a></li>
+						</ul>
 					<div class="datagrid left" style="margin-top:10px;width:400px">
-					<table class="table" width="100%" cellspacing="0" id="deptbl">
+					<table class="table table-condensed" width="100%" cellspacing="0" id="deptbl">
 						<thead>
 						<tr>
 							<th class="jtr">Positions</th>
@@ -58,8 +48,9 @@
 						?>
 						</table>
 					</div>
+             		 </div>
 				
 					<br class="clear" />
-					</div>
+				
 
 </div>

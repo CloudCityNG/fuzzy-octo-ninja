@@ -30,6 +30,7 @@ table tr td.frst{width: 150px}
 .datagrid table tfoot  li { display: inline; }
 .datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }
 .datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #00557F; color: #FFFFFF; background: none; background-color:#006699;}
+.dep{margin-right: 50px}
 .select{width:180px;}
 .navbar{margin-bottom: 9px}
 .custom-nav{margin-bottom: 9px}

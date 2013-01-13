@@ -13,6 +13,24 @@ class depandpos extends MVC_controller{
 
 	$data['info'] = $this->user->who('employees',$this->session->_get('uid'));
 	$data['deps'] =$dpr = $this->crud->read("select * from departments");
+	if(isset($_POST['adddep'])){
+			$dep = $_POST['dep_n'];
+			$pos = $_POST['pos'];
+			if(empty($pos[0]) || empty($dep)){
+				$data['error'] = "<div class='alert alert-error'>Please input Department and atleast one Position</div>";
+			}else{
+				$q = $this->db->prepare('INSERT INTO departments(dep_name) VALUES(:dname)');
+					$a = $q->execute(array('dname'=>$dep));
+				$lastid= $this->db->lastInsertId();
+					foreach($pos as $key){
+						$b = $this->db->prepare('INSERT INTO jobs(dep_id,job_name) VALUES(:id,:job)');
+						$a = $b->execute(array('id'=>$lastid,'job'=>$key));
+					}
+		
+				$data['rs'] = "<div class='alert alert-success'>Department and Position(s) was successfully add. <a href='".base_url()."depandpos' class='label label-important' >Click to view deparments</a></div>";
+			}
+		}
+
 	if(isset($_POST['modPos'])){
 		$dep = $_POST['new_pos'];
 				$id = $_POST['id'];
@@ -105,9 +123,9 @@ class depandpos extends MVC_controller{
 						redirect('depandpos/department/view/'.$id[1]);
 						$data['successremove'] = "<div class='success'>Position was successfully remove.</div>";
 					}
-			}
+		}
 			
-			
+		$data['formenu'] = $id[1];	
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/department_',$data);
 		$this->load->render('common/footer_',$data);
