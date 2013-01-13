@@ -61,14 +61,14 @@
 				});
 			</script>
 			<div class="alert alert-error" id="dp_error"><p>Please select Department</p></div>
-			<form action="<?=base_url()."employees/add/basic-information";?>" method="POST" >
+			<form action="<?=base_url()."employees/complete/";?>" method="POST" >
 
 				<table class="table table-large">
-					<tr><td>Username </td><td><input type="text" class="inp-search" value="" autocomplete="off" name="regusername" id="regusername"></td></tr>
-										<tr><td>Password </td><td><input type="text" class="inp-search" value="" autocomplete="off" name="regpassword" id="regpassword"></td></tr>
+					<tr><td>Username </td><td><input type="text" class="inp-search" value="<?=$forusername;?>" autocomplete="off" name="regusername" id="regusername"></td></tr>
+										<tr><td>Password </td><td><input type="text" class="inp-search" value="<?=$forpassword;?>" autocomplete="off" name="regpassword" id="regpassword"></td></tr>
 																
 				</table>	
-				<button type="submit" class="btn btn-success" name="select-department">Finish</button>
+				<button type="submit" class="btn btn-success" name="useraccounts">Finish</button>
 			</form>
 
 

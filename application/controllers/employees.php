@@ -116,12 +116,8 @@ class employees extends MVC_controller{
 				$position = $_POST['position'];
 				$salary = $_POST['sal'];
 				$this->session->_set(array('dep_id'=>$id,'pos_id'=>$position,'salary'=>$salary));
-		
-				$this->basic = true;
 		}
-		/*if($this->basic==false){
-			redirect('employees');
-		}*/
+
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_basic_',$data);
 		$this->load->render('common/footer_',$data);
@@ -129,7 +125,7 @@ class employees extends MVC_controller{
 
 	public function benefits_accounts(){
 		if(isset($_POST['basic-information'])){
-			/*$this->session->_set(array('lastname' =>  r_string($_POST['lname']),
+			$this->session->_set(array('lastname' =>  r_string($_POST['lname']),
 			'firstname' =>  r_string($_POST['fname']),
 			'mid_name' =>  r_string($_POST['mname']),
 			'bday' =>  r_string($_POST['bday']),
@@ -138,8 +134,8 @@ class employees extends MVC_controller{
 			'civil_status' =>  r_string($_POST['cv_stat']),
 			'address' => r_string($_POST['address']),
 			'religion' =>  r_string($_POST['religion']),
-			'contact' =>  r_string($_POST['cnumber'])));*/
-			$this->session->_set(array('religion'=>r_string($_POST['religion'])));
+			'contact' =>  r_string($_POST['cnumber'])));
+			//$this->session->_set(array('religion'=>r_string($_POST['religion'])));
 		}
 		$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_benefits_',$data);
@@ -147,9 +143,39 @@ class employees extends MVC_controller{
 	}
 
 	public function user_account(){
-	echo $this->session->_get('religion');
+		if(isset($_POST['benefits'])){
+			$this->session->_set(array('sss' =>  r_string($_POST['sss']),
+			'philhealth' =>  r_string($_POST['philhealth']),
+			'pagibig' =>  r_string($_POST['pagibig']),
+			'tin' =>  r_string($_POST['tin'])));
+			}
+
+		$data['forusername'] = getRandomString();
+		$data['forpassword'] = date(Ymdhis);
+	
 	$this->load->render('common/header__',$data);
 		$this->load->render('admin/employees_user_',$data);
+		$this->load->render('common/footer_',$data);
+	}
+
+	public function complete(){
+	//print_r($_SESSION);
+			if(isset($_POST['useraccounts'])){
+					foreach ($_SESSION as $key => $value) {
+						# code...
+						$data[$key] = $value;
+					}
+			$a = $this->crud->read("SELECT dep_name FROM departments WHERE id=:id",array(':id'=>$this->session->_get('dep_id')));
+			$b = $this->crud->read("SELECT job_name FROM jobs WHERE id=:id",array(':id'=>$this->session->_get('pos_id')));
+			$data['department'] = $a[0]['dep_name'];
+			$data['position'] = $b[0]['job_name'];
+			$data['username']=  r_string($_POST['regusername']);
+			$data['password'] =  r_string($_POST['regpassword']);
+			$data['success'] = "Employee was successfully added.";
+			//print_r($a);
+			}
+		$this->load->render('common/header__',$data);
+		$this->load->render('admin/employees_completed_',$data);
 		$this->load->render('common/footer_',$data);
 	}
 

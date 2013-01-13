@@ -70,7 +70,7 @@
 				</table>
 				
 										
-				<button type="submit" class="btn btn-success" name="select-department">Next</button>
+				<button type="submit" class="btn btn-success" name="benefits">Next</button>
 			</form>
 
 
